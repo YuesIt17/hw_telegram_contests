@@ -1,4 +1,5 @@
-import { TChartData, TChartLabel, TColumnKeys, TColumnValue } from "./types";
+import {TChartData, TColumnKeyValue} from "../../api/telegramChart/types";
+import {TChartLabel, TChartLine, TColumnValue} from "./types";
 
 const SPACE_BETWEEN_LABEL_X = 60;
 const SPACE_BETWEEN_LABEL_Y = 60;
@@ -13,9 +14,9 @@ export function prepareData(data: TChartData) {
   let dataValuesX: (number | string)[] = [];
   let columnDataY: TColumnValue[] = [];
 
-  const columnTypes = data.types as TColumnKeys;
-  const columnNames = data.names as TColumnKeys;
-  const columnColors = data.colors as TColumnKeys;
+  const columnTypes = data.types as TColumnKeyValue;
+  const columnNames = data.names as TColumnKeyValue;
+  const columnColors = data.colors as TColumnKeyValue;
 
   data.columns.forEach(([key, ...values]) => {
     let column: TColumnValue = {
@@ -94,7 +95,7 @@ export function prepareData(data: TChartData) {
         }
     });
   
-  const lines = coordinates
+  const lines: TChartLine[] = coordinates
     .map(item => {
       const {points, ...data} = item;
       return {
@@ -105,8 +106,9 @@ export function prepareData(data: TChartData) {
         })
         .join(" "),
         ...data,
+        isVisible: true,
       }
     });
 
-    return {lines, maxDataX, maxDataY, labelsX, labelsY};
+  return {lines, maxDataX, maxDataY, labelsX, labelsY};
 }

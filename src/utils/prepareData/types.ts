@@ -6,16 +6,15 @@ export type TColumnValue = {
   color?: string;
 }
 
-export type TColumnKeys = Record<string, string>;
-
-export type TChartData = {
-  columns: (string | number)[][];
-  types: TColumnKeys;
-  names: TColumnKeys;
-  colors: TColumnKeys;
-}
-
 export type TChartLabel = {
   label: string;
   coordinate: number;
+}
+
+export type TChartLine = {
+  type: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  points: string;
+  isVisible?: boolean;
 }

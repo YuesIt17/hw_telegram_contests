@@ -4,7 +4,7 @@ import { TChartAxis } from "./types";
 const FONT_SIZE = 14;
 const PADDING_AXIS_X = 20;
 
-const ChartAxis = ({points, typeAxis, labelPaddingX = 0, labelPaddingY = 0, labels, maxDataX}: TChartAxis) => (
+export const ChartAxis = ({points, typeAxis, labelPaddingX = 0, labelPaddingY = 0, labels, maxDataX}: TChartAxis) => (
   <g>
     <polyline fill="none" stroke="#ccc" points={points} />
     {typeAxis === 'x' && (
@@ -22,5 +22,3 @@ const ChartAxis = ({points, typeAxis, labelPaddingX = 0, labelPaddingY = 0, labe
     )}
   </g>
 );
-
-export default ChartAxis;
