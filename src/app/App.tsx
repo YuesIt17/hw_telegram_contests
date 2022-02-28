@@ -1,9 +1,11 @@
-import React from "react";
-import {TelegramChart} from "../features/telegramChart/containers/TelegramChart";
+import React from 'react'
+import {TelegramChart} from '../features/telegramChart/containers'
+import {useStyles} from './styles'
 
 export default function App() {
+  const styles = useStyles()
   return (
-    <div style={{display: 'grid', justifyItems: 'center'}}>
+    <div style={styles.app}>
       <TelegramChart />
     </div>
   )

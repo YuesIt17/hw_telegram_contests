@@ -1,18 +1,19 @@
-# 🚀 Welcome to your new awesome project!
+# Project telegram contest chart
 
-This project has been created using **webpack-cli**, you can now run
+Run build: 
+  - yarn build
 
-```
-npm run build
-```
+Run app: 
+  - yarn start
 
-or
+Run test:
+  - yarn test
 
-```
-yarn build
-```
+Run storybook: 
+  - yarn storybook
 
-to bundle your application
+Run lint: 
+  - yarn lint
 
 Init packages:
 
@@ -65,3 +66,16 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - add repository git hub
 - yarn add -D chromatic 
 - npx chromatic --project-token=aa696d5e18f8
+
+9. Init eslint and prettier
+
+- yarn add -D eslint
+- yarn add -D eslint-plugin-prettier
+- yarn add --D --exact prettier
+- yarn add --D husky lint-staged
+- yarn add -D @typescript-eslint/parser
+- yarn add -D @typescript-eslint/eslint-plugin
+- yarn create @eslint/config
+- yarn add -D eslint-plugin-react
+
+echo {}> .prettierrc.json - if there is a problem with encoding https://github.com/prettier/prettier/issues/8815

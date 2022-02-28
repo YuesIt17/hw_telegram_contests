@@ -1,6 +1,5 @@
 export type TTelegramChart = {
-  width?: number;
-  heigth?: number;
+  width?: number
 }
 
-export type TTelegramChartStyle = Pick<TTelegramChart, 'width'>;
+export type TTelegramChartStyle = TTelegramChart

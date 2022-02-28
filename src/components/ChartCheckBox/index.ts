@@ -1,1 +1,1 @@
-export {ChartCheckBox} from './ChartCheckBox';
+export {ChartCheckBox} from './ChartCheckBox'

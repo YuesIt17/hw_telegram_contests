@@ -1,1 +1,1 @@
-export {ChartAxis} from './ChartAxis';
+export {ChartAxis} from './ChartAxis'

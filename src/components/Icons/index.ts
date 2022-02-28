@@ -1,1 +1,1 @@
-export {CheckCircleIcon} from './Checkbox/CheckCircleIcon';
+export {CheckCircleIcon} from './Checkbox/CheckCircleIcon'
