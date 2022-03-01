@@ -1,5 +1,5 @@
-import {TChartLine} from '../../../utils/prepareData/types'
-import {ChartAction} from './actions'
+import {TChartLine} from '../../../utils/prepareData/types';
+import {ChartAction} from './actions';
 
 export function reducer(
   state: TChartLine[],
@@ -8,19 +8,19 @@ export function reducer(
   switch (type) {
     case ChartAction.setAll:
       if (Array.isArray(payload)) {
-        return [...payload]
+        return [...payload];
       }
-      break
+      break;
     case ChartAction.updateOne:
       if (!Array.isArray(payload) && payload.name) {
-        const lines = state.filter((item) => item.name !== payload.name)
-        const newState = [...lines, payload]
+        const lines = state.filter((item) => item.name !== payload.name);
+        const newState = [...lines, payload];
         return newState.sort((a, b) =>
           (a.name || '') > (b.name || '') ? 1 : -1
-        )
+        );
       }
-      break
+      break;
     default:
-      return state
+      return state;
   }
 }

@@ -1,15 +1,15 @@
-import React from 'react'
-import {useStyles} from './styles'
-import {TTelegramChart} from './types'
-import {useTelegramChart} from './hook'
-import {TelegramChartFooter, TelegramChartLine} from '../../components'
+import React from 'react';
+import {useStyles} from './styles';
+import {TTelegramChart} from './types';
+import {useTelegramChart} from './hook';
+import {TelegramChartFooter, TelegramChartLine} from '../../components';
 
 export const TelegramChart = ({width = 700}: TTelegramChart) => {
-  const styles = useStyles({width})
+  const styles = useStyles({width});
   const {data, maxDataX, maxDataY, labelsX, labelsY, onChangeHadler} =
-    useTelegramChart()
+    useTelegramChart();
 
-  if (!data) return null
+  if (!data) return null;
   return (
     <div style={styles.chart}>
       <TelegramChartLine
@@ -21,5 +21,5 @@ export const TelegramChart = ({width = 700}: TTelegramChart) => {
       />
       <TelegramChartFooter data={data} onChange={onChangeHadler} />
     </div>
-  )
-}
+  );
+};

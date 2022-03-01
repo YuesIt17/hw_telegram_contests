@@ -1,5 +1,5 @@
 export type TTelegramChart = {
-  width?: number
-}
+  width?: number;
+};
 
-export type TTelegramChartStyle = TTelegramChart
+export type TTelegramChartStyle = TTelegramChart;

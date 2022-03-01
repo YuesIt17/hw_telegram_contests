@@ -1,8 +1,8 @@
-import React from 'react'
-import {ChartAxis} from '../../../../components/ChartAxis'
-import ChartLine from '../../../../components/ChartLine'
-import {PEDDING_CHART_SIZE} from '../../constants'
-import {TTelegramChartLine} from './types'
+import React from 'react';
+import {ChartAxis} from '../ChartAxis';
+import {ChartLine} from '../ChartLine';
+import {PEDDING_CHART_SIZE} from '../../constants';
+import {TTelegramChartLine} from './types';
 
 export const TelegramChartLine = ({
   data,
@@ -10,13 +10,15 @@ export const TelegramChartLine = ({
   maxDataY,
   labelsX,
   labelsY,
+  width,
 }: TTelegramChartLine) => {
-  if (!data) return null
+  if (!data) return null;
   return (
     <svg
       viewBox={`0 0 ${maxDataX + PEDDING_CHART_SIZE * 2} ${
         maxDataY + PEDDING_CHART_SIZE
       }`}
+      style={{width}}
     >
       {data.map((line) => (
         <ChartLine
@@ -39,5 +41,5 @@ export const TelegramChartLine = ({
         maxDataX={maxDataX}
       />
     </svg>
-  )
-}
+  );
+};

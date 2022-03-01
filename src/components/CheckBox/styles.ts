@@ -1,4 +1,4 @@
-import {CSSProperties} from 'react'
+import {CSSProperties} from 'react';
 
 export const useStyles = (): Record<
   'button' | 'icon' | 'label',
@@ -21,4 +21,4 @@ export const useStyles = (): Record<
     fontSize: 12,
     color: '#424242',
   },
-})
+});

@@ -1,2 +1,2 @@
-export {TelegramChartFooter} from './TelegramChartFooter/TelegramChartFooter'
-export {TelegramChartLine} from './TelegramChartLine/TelegramChartLine'
+export {TelegramChartFooter} from './TelegramChartFooter/TelegramChartFooter';
+export {TelegramChartLine} from './TelegramChartLine/TelegramChartLine';

@@ -1,4 +1,4 @@
-import {TChartData} from './types'
+import {TChartData} from './types';
 
 export const mockDataCharts = {
   columns: [
@@ -361,4 +361,4 @@ export const mockDataCharts = {
     y0: '#3DC23F',
     y1: '#F34C44',
   },
-} as TChartData
+} as TChartData;

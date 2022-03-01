@@ -1,12 +1,12 @@
-import {TChartData} from '../../api/telegramChart/types'
+import {TChartData} from '../../api/telegramChart/types';
 import {
   getColumnData,
   getPrepareDataAxisX,
   getPrepareDataAxisY,
   parseDateTimeToInt,
   prepareData,
-} from './prepareData'
-import {TChartLabel, TChartLine} from './types'
+} from './prepareData';
+import {TChartLabel, TChartLine} from './types';
 
 const inputData = {
   columns: [
@@ -23,7 +23,7 @@ const inputData = {
   colors: {
     y0: '#3DC23F',
   },
-} as TChartData
+} as TChartData;
 
 describe('Prepare data for chart', () => {
   test('Check prepare data', () => {
@@ -51,10 +51,10 @@ describe('Prepare data for chart', () => {
           coordinate: 23,
         },
       ] as TChartLabel[],
-    }
+    };
 
-    expect(prepareData(inputData)).toEqual(outputData)
-  })
+    expect(prepareData(inputData)).toEqual(outputData);
+  });
 
   test('Check get column data', () => {
     const columnData = {
@@ -67,17 +67,17 @@ describe('Prepare data for chart', () => {
         },
       ],
       dataValuesX: [1542412800000, 1542499200000],
-    }
+    };
 
-    expect(getColumnData(inputData)).toEqual(columnData)
-  })
+    expect(getColumnData(inputData)).toEqual(columnData);
+  });
 
   test('Check parse format date time to int', () => {
-    expect(parseDateTimeToInt('1542412800000', 1)).toBe(6)
-  })
+    expect(parseDateTimeToInt('1542412800000', 1)).toBe(6);
+  });
 
   test('Check get prepare data axis x', () => {
-    const dataValuesX = [1542412800000, 1542499200000]
+    const dataValuesX = [1542412800000, 1542499200000];
     const dataAxisX = {
       coordinatesX: [1, 6],
       labelsX: [
@@ -87,10 +87,10 @@ describe('Prepare data for chart', () => {
         },
       ] as TChartLabel[],
       maxDataX: 11,
-    }
+    };
 
-    expect(getPrepareDataAxisX(dataValuesX)).toEqual(dataAxisX)
-  })
+    expect(getPrepareDataAxisX(dataValuesX)).toEqual(dataAxisX);
+  });
 
   test('Check get prepare data axis y', () => {
     const columnDataY = [
@@ -100,7 +100,7 @@ describe('Prepare data for chart', () => {
         type: 'line',
         values: [37, 20],
       },
-    ]
+    ];
     const dataAxisY = {
       labelsY: [
         {
@@ -109,8 +109,8 @@ describe('Prepare data for chart', () => {
         },
       ],
       maxDataY: 37,
-    }
+    };
 
-    expect(getPrepareDataAxisY(columnDataY)).toEqual(dataAxisY)
-  })
-})
+    expect(getPrepareDataAxisY(columnDataY)).toEqual(dataAxisY);
+  });
+});

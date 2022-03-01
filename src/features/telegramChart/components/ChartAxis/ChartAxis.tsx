@@ -1,6 +1,6 @@
-import React from 'react'
-import {FONT_SIZE} from '../../features/telegramChart/constants'
-import {TChartAxis} from './types'
+import React from 'react';
+import {FONT_SIZE} from '../../constants';
+import {TChartAxis} from './types';
 
 export const ChartAxis = ({
   points,
@@ -41,4 +41,4 @@ export const ChartAxis = ({
         </g>
       ))}
   </g>
-)
+);

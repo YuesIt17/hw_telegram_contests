@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import {Header} from './Header'
-import './page.css'
+import {Header} from './Header';
+import './page.css';
 
 interface PageProps {
-  user?: {name: string}
-  onLogin: () => void
-  onLogout: () => void
-  onCreateAccount: () => void
+  user?: {name: string};
+  onLogin: () => void;
+  onLogout: () => void;
+  onCreateAccount: () => void;
 }
 
 export const Page = ({user, onLogin, onLogout, onCreateAccount}: PageProps) => (
@@ -86,4 +86,4 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount}: PageProps) => (
       </div>
     </section>
   </article>
-)
+);

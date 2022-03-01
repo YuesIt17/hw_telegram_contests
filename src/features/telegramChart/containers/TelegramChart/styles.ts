@@ -1,5 +1,5 @@
-import {CSSProperties} from 'react'
-import {TTelegramChartStyle} from './types'
+import {CSSProperties} from 'react';
+import {TTelegramChartStyle} from './types';
 
 export const useStyles = ({
   width,
@@ -9,4 +9,4 @@ export const useStyles = ({
     margin: 50,
     alignSelf: 'flex-start',
   },
-})
+});
