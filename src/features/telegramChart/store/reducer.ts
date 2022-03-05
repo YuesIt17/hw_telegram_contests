@@ -1,10 +1,10 @@
-import {TChartLine} from '../../../utils/prepareData/types';
+import {TChartDataLine} from '../../../utils/prepareData/types';
 import {ChartAction} from './actions';
 
 export function reducer(
-  state: TChartLine[],
-  {type, payload}: {type: ChartAction; payload: TChartLine[] | TChartLine}
-) {
+  state: TChartDataLine[],
+  {type, payload}: {type: ChartAction; payload: TChartDataLine[] | TChartDataLine}
+): TChartDataLine[] {
   switch (type) {
     case ChartAction.setAll:
       if (Array.isArray(payload)) {
@@ -20,7 +20,6 @@ export function reducer(
         );
       }
       break;
-    default:
-      return state;
   }
+  return state;
 }

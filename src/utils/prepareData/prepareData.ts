@@ -7,7 +7,7 @@ import {
   SPACE_BETWEEN_LABEL_X,
   SPACE_BETWEEN_LABEL_Y,
 } from '../../features/telegramChart/constants';
-import {TChartLabel, TChartLine, TColumnValue} from './types';
+import {TChartDataLabel, TChartDataLine, TColumnValue} from './types';
 
 export function getColumnData(data: TChartData) {
   let dataValuesX: TColumnsValueAxis = [];
@@ -42,7 +42,7 @@ export function parseDateTimeToInt(value: string, index: number, delta = 5) {
 
 export function getPrepareDataAxisX(dataValuesX: TColumnsValueAxis) {
   const coordinatesX: number[] = [];
-  const labelsX: TChartLabel[] = [];
+  const labelsX: TChartDataLabel[] = [];
   let maxDataX = 0;
 
   if (dataValuesX?.length > 0) {
@@ -59,7 +59,7 @@ export function getPrepareDataAxisX(dataValuesX: TColumnsValueAxis) {
 
       if (index === 0 || remainderX === 0) {
         const dataX = new Date(item);
-        const labelX: TChartLabel = {
+        const labelX: TChartDataLabel = {
           label: dataX.toLocaleString('en-US', {
             day: 'numeric',
             month: 'short',
@@ -81,7 +81,7 @@ export function getPrepareDataAxisY(columnDataY: TColumnValue[]) {
   );
   const countLabelY = Math.round(maxDataY / SPACE_BETWEEN_LABEL_Y);
 
-  const labelsY: TChartLabel[] = new Array(countLabelY)
+  const labelsY: TChartDataLabel[] = new Array(countLabelY)
     .fill(SPACE_BETWEEN_LABEL_Y)
     .reduce((result: number[], currentItem: number, currentIndex) => {
       const prevItem = currentIndex > 0 ? result[currentIndex - 1] : 0;
@@ -124,7 +124,7 @@ export function prepareData(data: TChartData) {
     };
   });
 
-  const lines: TChartLine[] = coordinates.map((item) => {
+  const lines: TChartDataLine[] = coordinates.map((item) => {
     const {points, ...data} = item;
     return {
       points: points

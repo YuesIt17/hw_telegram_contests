@@ -3,19 +3,19 @@ import {TColumnsValueAxis} from '../../api/telegramChart/types';
 export type TColumnValue = {
   values: TColumnsValueAxis;
   type: string;
-  name?: string;
-  color?: string;
+  name: string;
+  color: string;
 };
 
-export type TChartLabel = {
+export type TChartDataLabel = {
   label: string;
   coordinate: number;
 };
 
-export type TChartLine = {
+export type TChartDataLine = {
   type: string;
   name: string;
-  color?: string | undefined;
+  color: string;
   points: string;
-  isVisible?: boolean;
+  isVisible: boolean;
 };
