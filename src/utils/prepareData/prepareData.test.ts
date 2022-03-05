@@ -6,7 +6,7 @@ import {
   parseDateTimeToInt,
   prepareData,
 } from './prepareData';
-import {TChartLabel, TChartLine} from './types';
+import {TChartDataLabel, TChartDataLine} from './types';
 
 const inputData = {
   columns: [
@@ -36,7 +36,7 @@ describe('Prepare data for chart', () => {
           type: 'line',
           isVisible: true,
         },
-      ] as TChartLine[],
+      ] as TChartDataLine[],
       maxDataX: 11,
       maxDataY: 37,
       labelsX: [
@@ -44,13 +44,13 @@ describe('Prepare data for chart', () => {
           label: 'Nov 17',
           coordinate: 1,
         },
-      ] as TChartLabel[],
+      ] as TChartDataLabel[],
       labelsY: [
         {
           label: '60',
           coordinate: 23,
         },
-      ] as TChartLabel[],
+      ] as TChartDataLabel[],
     };
 
     expect(prepareData(inputData)).toEqual(outputData);
@@ -85,7 +85,7 @@ describe('Prepare data for chart', () => {
           coordinate: 1,
           label: 'Nov 17',
         },
-      ] as TChartLabel[],
+      ] as TChartDataLabel[],
       maxDataX: 11,
     };
 
