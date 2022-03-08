@@ -55,11 +55,13 @@ https://ru.reactjs.org/docs/static-type-checking.html
 
 - npx sb init
 
-7. Init jest
+7. Init jest and testing-library
 
 - yarn add -D jest
 - yarn add -D @types/jest
 - add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
+- yarn add -D @testing-library/react
+- yarn add -D @testing-library/jest-dom
 
 8. Init chromatic https://www.chromatic.com/
 
@@ -77,5 +79,4 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - yarn add -D @typescript-eslint/eslint-plugin
 - yarn create @eslint/config
 - yarn add -D eslint-plugin-react
-
-echo {}> .prettierrc.json - if there is a problem with encoding https://github.com/prettier/prettier/issues/8815
+- echo {}> .prettierrc.json - if there is a problem with encoding https://github.com/prettier/prettier/issues/8815

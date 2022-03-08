@@ -11,7 +11,7 @@ export const TelegramChart = ({width}: TTelegramChart) => {
 
   if (!data) return null;
   return (
-    <div style={styles.chart}>
+    <div style={styles.chart} data-testid="telegramChart">
       <TelegramChartLine
         data={data}
         maxDataX={maxDataX}

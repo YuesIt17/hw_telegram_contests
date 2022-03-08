@@ -72,7 +72,7 @@ export class TelegramChartClass extends React.Component<
 
   render() {
     return (
-      <div style={this.styles.chart}>
+      <div style={this.styles.chart} data-testid="telegramChart">
         <TelegramChartLine
           data={this.state.data}
           maxDataX={this.state.maxDataX}

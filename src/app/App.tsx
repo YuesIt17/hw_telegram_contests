@@ -1,4 +1,5 @@
-import React, {useCallback, useState} from 'react';
+import React, {ReactElement, useCallback, useState} from 'react';
+import {render} from 'react-dom';
 import {CheckBox} from '../components/CheckBox';
 import {TCheckboxField} from '../components/CheckBox/types';
 import {CHART_WIDTH} from '../features/telegramChart/constants';
@@ -19,7 +20,7 @@ export default function App() {
       <div style={styles.toolbar}>
         <CheckBox
           label={'Показать/Скрыть график'}
-          name="chart"
+          name="isVisibleChart"
           value={toggle}
           color="#1565c0"
           onChange={onToggleHadler}

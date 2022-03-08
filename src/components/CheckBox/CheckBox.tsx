@@ -14,7 +14,7 @@ export function CheckBox({label, name, value, color, onChange}: TCheckBox) {
   };
 
   return (
-    <button style={styles.button} onClick={onClickHandler}>
+    <button style={styles.button} onClick={onClickHandler} data-testid={name}>
       <div style={styles.icon}>
         <CheckCircleIcon fill={checkedColor} stroke={color} />
       </div>
