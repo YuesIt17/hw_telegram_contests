@@ -1,5 +1,4 @@
-import React, {ReactElement, useCallback, useState} from 'react';
-import {render} from 'react-dom';
+import React, {useCallback, useState} from 'react';
 import {CheckBox} from '../components/CheckBox';
 import {TCheckboxField} from '../components/CheckBox/types';
 import {CHART_WIDTH} from '../features/telegramChart/constants';
