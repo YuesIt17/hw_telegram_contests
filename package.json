@@ -43,6 +43,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
+    "precommit": "npm test & npm run lint",
     "chromatic": "npx chromatic --project-token=aa696d5e18f8",
     "prepare": "husky install"
   },
