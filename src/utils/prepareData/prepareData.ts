@@ -7,7 +7,12 @@ import {
   SPACE_BETWEEN_LABEL_X,
   SPACE_BETWEEN_LABEL_Y,
 } from '../../features/telegramChart/constants';
-import {TChartDataLabel, TChartDataLine, TColumnValue} from './types';
+import {
+  TChartDataLabel,
+  TChartDataLine,
+  TChartPrepareData,
+  TColumnValue,
+} from './types';
 
 export function getColumnData(data: TChartData) {
   let dataValuesX: TColumnsValueAxis = [];
@@ -103,7 +108,7 @@ export function getPrepareDataAxisY(columnDataY: TColumnValue[]) {
   return {labelsY, maxDataY};
 }
 
-export function prepareData(data: TChartData) {
+export function prepareData(data: TChartData): TChartPrepareData {
   const {dataValuesX, columnDataY} = getColumnData(data);
 
   const {coordinatesX, labelsX, maxDataX} = getPrepareDataAxisX(dataValuesX);

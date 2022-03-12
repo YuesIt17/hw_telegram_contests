@@ -3,7 +3,10 @@ import {ChartAction} from './actions';
 
 export function reducer(
   state: TChartDataLine[],
-  {type, payload}: {type: ChartAction; payload: TChartDataLine[] | TChartDataLine}
+  {
+    type,
+    payload,
+  }: {type: ChartAction; payload: TChartDataLine[] | TChartDataLine}
 ): TChartDataLine[] {
   switch (type) {
     case ChartAction.setAll:
@@ -12,7 +15,7 @@ export function reducer(
       }
       break;
     case ChartAction.updateOne:
-      if (!Array.isArray(payload) && payload.name) {
+      if (!Array.isArray(payload) && payload?.name) {
         const lines = state.filter((item) => item.name !== payload.name);
         const newState = [...lines, payload];
         return newState.sort((a, b) =>

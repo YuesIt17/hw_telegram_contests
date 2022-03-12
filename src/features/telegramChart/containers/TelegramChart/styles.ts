@@ -6,7 +6,8 @@ export const useStyles = ({
 }: TTelegramChartStyle): Record<'chart', CSSProperties | undefined> => ({
   chart: {
     width: width,
-    margin: 50,
+    marginTop: 20,
+    marginBottom: 50,
     alignSelf: 'flex-start',
   },
 });

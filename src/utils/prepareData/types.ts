@@ -19,3 +19,11 @@ export type TChartDataLine = {
   points: string;
   isVisible: boolean;
 };
+
+export type TChartPrepareData = {
+  lines: TChartDataLine[] | TChartDataLine;
+  maxDataX: number;
+  maxDataY: number;
+  labelsX: TChartDataLabel[];
+  labelsY: TChartDataLabel[];
+};

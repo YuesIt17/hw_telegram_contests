@@ -1,10 +1,9 @@
-import {TChartDataLabel, TChartDataLine} from '../../../../utils/prepareData/types';
+import {
+  TChartDataLine,
+  TChartPrepareData,
+} from '../../../../utils/prepareData/types';
 
 export type TTelegramChartLine = {
   data: TChartDataLine[];
-  maxDataX: number;
-  maxDataY: number;
-  labelsX: TChartDataLabel[];
-  labelsY: TChartDataLabel[];
   width?: number;
-};
+} & Pick<TChartPrepareData, 'maxDataX' | 'maxDataY' | 'labelsX' | 'labelsY'>;

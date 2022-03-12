@@ -1,8 +1,9 @@
 import React from 'react';
 import {ChartAxis} from '../ChartAxis';
-import {ChartLine} from '../ChartLine';
+//import {ChartLine} from '../ChartLine';
 import {PEDDING_CHART_SIZE} from '../../constants';
 import {TTelegramChartLine} from './types';
+import {ChartLineClass} from '../../sampleClassComponent/components';
 
 export const TelegramChartLine = ({
   data,
@@ -21,12 +22,18 @@ export const TelegramChartLine = ({
       style={{width}}
     >
       {data.map((line) => (
-        <ChartLine
+        <ChartLineClass
           key={line.name}
           points={line.points}
           stroke={line.color}
           isVisible={line.isVisible}
         />
+        // <ChartLine
+        //   key={line.name}
+        //   points={line.points}
+        //   stroke={line.color}
+        //   isVisible={line.isVisible}
+        // />
       ))}
       <ChartAxis
         typeAxis="x"
