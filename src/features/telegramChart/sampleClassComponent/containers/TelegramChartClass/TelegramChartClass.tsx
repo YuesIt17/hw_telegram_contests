@@ -2,7 +2,6 @@ import React from 'react';
 import {
   TChartDataLabel,
   TChartDataLine,
-  TChartPrepareData,
 } from '../../../../../utils/prepareData/types';
 import {ChartAction} from '../../../store/actions';
 import {reducer} from '../../../store/reducer';
@@ -13,6 +12,7 @@ import {TTelegramChartLine} from '../../../components/TelegramChartLine/types';
 import {omit} from '../../../../../utils/utils';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';
 import {useStyles} from '../../../containers/TelegramChart/styles';
+import {TChartClassData} from './types';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,
@@ -41,7 +41,7 @@ export class TelegramChartClass extends React.Component<
     payload,
   }: {
     action: ChartAction;
-    payload: TChartPrepareData;
+    payload: TChartClassData;
   }) => {
     const data = reducer(this.state.data, {
       type: action,
@@ -72,7 +72,7 @@ export class TelegramChartClass extends React.Component<
 
   render() {
     return (
-      <div style={this.styles.chart} data-testid="telegramChart">
+      <div style={this.styles.chart} data-testid="telegramChartClass">
         <TelegramChartLine
           data={this.state.data}
           maxDataX={this.state.maxDataX}

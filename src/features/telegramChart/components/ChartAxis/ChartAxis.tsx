@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {FONT_SIZE} from '../../constants';
 import {TChartAxis} from './types';
 
-export const ChartAxis = ({
+const ChartAxis = ({
   points,
   typeAxis,
   labelPaddingX = 0,
@@ -18,7 +18,7 @@ export const ChartAxis = ({
           key={index}
           x={item.coordinate}
           y={labelPaddingY + FONT_SIZE * 2}
-          style={{fontSize: FONT_SIZE}}
+          style={{fontSize: FONT_SIZE, fill: '#ccc'}}
         >
           {item.label}
         </text>
@@ -29,7 +29,7 @@ export const ChartAxis = ({
           <text
             x={labelPaddingX}
             y={item.coordinate - FONT_SIZE}
-            style={{fontSize: FONT_SIZE}}
+            style={{fontSize: FONT_SIZE, fill: '#ccc'}}
           >
             {item.label}
           </text>
@@ -42,3 +42,5 @@ export const ChartAxis = ({
       ))}
   </g>
 );
+
+export default memo(ChartAxis);

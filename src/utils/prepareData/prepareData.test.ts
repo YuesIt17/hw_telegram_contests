@@ -33,6 +33,7 @@ describe('Prepare data for chart', () => {
           color: '#3DC23F',
           name: '#0',
           points: '1,0 6,17',
+          pointsMap: '1,0 6,3',
           type: 'line',
           isVisible: true,
         },

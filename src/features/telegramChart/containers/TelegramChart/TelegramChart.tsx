@@ -3,6 +3,7 @@ import {useStyles} from './styles';
 import {TTelegramChart} from './types';
 import {useTelegramChart} from './hook';
 import {TelegramChartFooter, TelegramChartLine} from '../../components';
+import {TelegramChartMap} from '../TelegramChartMap/TelegramChartMap';
 
 export const TelegramChart = ({width}: TTelegramChart) => {
   const styles = useStyles({width});
@@ -18,6 +19,12 @@ export const TelegramChart = ({width}: TTelegramChart) => {
         maxDataY={maxDataY}
         labelsX={labelsX}
         labelsY={labelsY}
+      />
+      <TelegramChartMap
+        data={data}
+        maxDataX={maxDataX}
+        maxDataY={maxDataY}
+        width={width}
       />
       <TelegramChartFooter data={data} onChange={onChangeHadler} />
     </div>

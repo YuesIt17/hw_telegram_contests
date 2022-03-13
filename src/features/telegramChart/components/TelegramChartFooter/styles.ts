@@ -4,5 +4,6 @@ export const useStyles = (): Record<'footer', CSSProperties | undefined> => ({
   footer: {
     display: 'flex',
     columnGap: 20,
+    marginTop: 20,
   },
 });

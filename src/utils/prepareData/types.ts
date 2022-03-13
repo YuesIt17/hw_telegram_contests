@@ -17,13 +17,14 @@ export type TChartDataLine = {
   name: string;
   color: string;
   points: string;
+  pointsMap: string;
   isVisible: boolean;
 };
 
 export type TChartPrepareData = {
-  lines: TChartDataLine[] | TChartDataLine;
+  lines: TChartDataLine[];
   maxDataX: number;
   maxDataY: number;
-  labelsX: TChartDataLabel[];
-  labelsY: TChartDataLabel[];
+  labelsX?: TChartDataLabel[];
+  labelsY?: TChartDataLabel[];
 };

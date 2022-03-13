@@ -1,12 +1,12 @@
 import React from 'react';
 import {TChartLine} from './types';
 
-export function ChartLine({
+export const ChartLine = ({
   points,
   fill = 'none',
   stroke = '#0074d9',
   isVisible = true,
-}: TChartLine) {
+}: TChartLine) => {
   if (!isVisible) return null;
   return <polyline fill={fill} stroke={stroke} points={points} />;
-}
+};
