@@ -21,6 +21,7 @@ TelegramChartLineExample.args = {
       name: '#0',
       points: '0,200 60,600 210,110 300,300 400,200',
       type: 'line',
+      pointsMap: '',
       isVisible: true,
     },
   ],
