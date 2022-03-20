@@ -9,6 +9,8 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    //https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],

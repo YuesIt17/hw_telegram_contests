@@ -80,3 +80,7 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - yarn create @eslint/config
 - yarn add -D eslint-plugin-react
 - echo {}> .prettierrc.json - if there is a problem with encoding https://github.com/prettier/prettier/issues/8815
+
+10. Init react router 
+
+- yarn add react-router-dom@6

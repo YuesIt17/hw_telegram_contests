@@ -1,10 +1,13 @@
 import React, {memo, useContext} from 'react';
+import {TChartDataLine} from '../../../../utils/prepareData/types';
+import {ClassComponentContext} from '../../pages/TelegramChartPage';
+import {ChartLineClass} from '../../sampleClassComponent/components';
 import {ChartAxis} from '../ChartAxis';
 import {ChartLine} from '../ChartLine';
 import {TTelegramChartLine} from './types';
-import {ChartLineClass} from '../../sampleClassComponent/components';
-import {ClassComponentContext} from '../../../../app';
-import {TChartDataLine} from '../../../../utils/prepareData/types';
+// import {ChartLineClass} from '../../sampleClassComponent/components';
+// import {ClassComponentContext} from '../../../../app';
+// import {TChartDataLine} from '../../../../utils/prepareData/types';
 
 const Line = memo(
   ({
