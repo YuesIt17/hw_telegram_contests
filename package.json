@@ -13,6 +13,7 @@
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "@webpack-cli/generators": "^2.4.2",
@@ -27,6 +28,7 @@
     "jest": "^27.4.7",
     "lint-staged": "^12.3.4",
     "prettier": "2.5.1",
+    "react-test-renderer": "^17.0.2",
     "typescript": "^4.5.5",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2",
@@ -45,6 +47,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
+    "test-update": "jest --updateSnapshot",
     "precommit": "npm test & npm run lint",
     "chromatic": "npx chromatic --project-token=aa696d5e18f8",
     "prepare": "husky install"

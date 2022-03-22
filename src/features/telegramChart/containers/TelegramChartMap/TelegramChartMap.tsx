@@ -2,15 +2,13 @@ import React, {useMemo} from 'react';
 import {TelegramChartLine} from '../../components';
 import {TTelegramChartMap} from './types';
 import {CHART_DELTA_MAP_Y} from '../../constants';
-import {omit} from '../../../../utils/utils';
 import {TChartDataLine} from '../../../../utils/prepareData/types';
 import {useStyles} from './styles';
 
 const getChartData = (data: TChartDataLine[]) =>
   data.map((item) => {
-    const chartData = omit(item, 'points');
     return {
-      ...chartData,
+      ...item,
       points: item.pointsMap,
     };
   });

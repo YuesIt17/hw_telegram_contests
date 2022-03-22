@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const resolvePath = p => path.resolve(__dirname, p)
+
 const config = {
   entry: "./src/index.tsx",
   output: {
@@ -12,6 +14,9 @@ const config = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+      '@utils': resolvePath('./src/utils'),
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

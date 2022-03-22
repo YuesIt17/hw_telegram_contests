@@ -7,6 +7,9 @@
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "compiled"
+    "outDir": "compiled",
+    "paths": {
+      "@utils": ["./src/utils"]
+    }
   }
 }

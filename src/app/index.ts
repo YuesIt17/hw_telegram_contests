@@ -1,2 +1,2 @@
-export {default} from './App';
+export {App} from './App';
 export {ClassComponentContext} from './App';

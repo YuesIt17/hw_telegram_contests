@@ -13,6 +13,7 @@ import {omit} from '../../../../../utils/utils';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';
 import {useStyles} from '../../../containers/TelegramChart/styles';
 import {TChartClassData} from './types';
+import {PEDDING_CHART_SIZE} from '../../../constants';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,
@@ -79,6 +80,7 @@ export class TelegramChartClass extends React.Component<
           maxDataY={this.state.maxDataY}
           labelsX={this.state.labelsX}
           labelsY={this.state.labelsY}
+          peddingSize={PEDDING_CHART_SIZE}
         />
         <TelegramChartFooter
           data={this.state.data}

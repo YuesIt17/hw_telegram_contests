@@ -8,7 +8,7 @@ export const TelegramChartFooter = ({data, onChange}: TTelegramChartFooter) => {
 
   if (!data) return null;
   return (
-    <div style={styles.footer} data-testid="telegramChartFooter">
+    <div style={styles.footer}>
       {data.map((line) => (
         <CheckBox
           key={line.name}

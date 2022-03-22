@@ -6,4 +6,5 @@ import {
 export type TTelegramChartLine = {
   data: TChartDataLine[];
   width?: number;
+  peddingSize?: number;
 } & Omit<TChartPrepareData, 'lines'>;

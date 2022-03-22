@@ -8,7 +8,7 @@ import {useStyles} from './styles';
 
 export const ClassComponentContext = createContext({hasClassComponent: false});
 
-export default function App() {
+export function App() {
   const styles = useStyles({width: CHART_WIDTH});
   const [isVisibleChart, setVisibleChart] = useState(true);
   const [toggleClassComponent, setToggleClassComponent] = useState(false);
