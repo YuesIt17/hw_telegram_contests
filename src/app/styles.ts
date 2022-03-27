@@ -11,5 +11,7 @@ export const useStyles = ({
   },
   toolbar: {
     width: width,
+    display: 'flex',
+    columnGap: 10,
   },
 });

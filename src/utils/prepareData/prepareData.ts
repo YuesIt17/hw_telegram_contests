@@ -4,15 +4,11 @@ import {
   TColumnsValueAxis,
 } from '../../api/telegramChart/types';
 import {
+  CHART_DELTA_MAP_Y,
   SPACE_BETWEEN_LABEL_X,
   SPACE_BETWEEN_LABEL_Y,
 } from '../../features/telegramChart/constants';
-import {
-  TChartDataLabel,
-  TChartDataLine,
-  TChartPrepareData,
-  TColumnValue,
-} from './types';
+import {TChartDataLabel, TChartPrepareData, TColumnValue} from './types';
 
 export function getColumnData(data: TChartData) {
   let dataValuesX: TColumnsValueAxis = [];
@@ -81,8 +77,12 @@ export function getPrepareDataAxisX(dataValuesX: TColumnsValueAxis) {
 }
 
 export function getPrepareDataAxisY(columnDataY: TColumnValue[]) {
-  const maxDataY = Math.max(
-    ...columnDataY.map((item) => Math.max(...item.values.map((y) => Number(y))))
+  const maxDataY = Math.round(
+    Math.max(
+      ...columnDataY.map((item) =>
+        Math.max(...item.values.map((y) => Number(y)))
+      )
+    )
   );
   const countLabelY = Math.round(maxDataY / SPACE_BETWEEN_LABEL_Y);
 
@@ -129,13 +129,20 @@ export function prepareData(data: TChartData): TChartPrepareData {
     };
   });
 
-  const lines: TChartDataLine[] = coordinates.map((item) => {
+  const lines = coordinates.map((item) => {
     const {points, ...data} = item;
     return {
       points: points
         .map((element) => {
           const x = element.x;
           const y = element.y;
+          return `${x},${y}`;
+        })
+        .join(' '),
+      pointsMap: points
+        .map((element) => {
+          const x = element.x;
+          const y = Math.round(element.y / CHART_DELTA_MAP_Y);
           return `${x},${y}`;
         })
         .join(' '),

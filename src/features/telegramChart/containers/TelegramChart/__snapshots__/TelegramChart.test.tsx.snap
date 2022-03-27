@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Telegram Chart test Check render TelegramChart component 1`] = `
+<div
+  data-testid="telegramChart"
+  style={
+    Object {
+      "alignSelf": "flex-start",
+      "marginBottom": 20,
+      "marginTop": 20,
+      "width": 700,
+    }
+  }
+>
+  <svg
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+    viewBox="0 0 591 308"
+  >
+    <g>
+      <polyline
+        points="0,278 561,278"
+        style={
+          Object {
+            "stroke": "#ccc",
+            "strokeWidth": 0.5,
+          }
+        }
+      />
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={1}
+        y={302}
+      >
+        Nov 17
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={61}
+        y={302}
+      >
+        Nov 29
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={121}
+        y={302}
+      >
+        Dec 11
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={181}
+        y={302}
+      >
+        Dec 23
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={241}
+        y={302}
+      >
+        Jan 4
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={301}
+        y={302}
+      >
+        Jan 16
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={361}
+        y={302}
+      >
+        Jan 28
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={421}
+        y={302}
+      >
+        Feb 9
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={481}
+        y={302}
+      >
+        Feb 21
+      </text>
+      <text
+        style={
+          Object {
+            "fill": "#ccc",
+            "fontSize": 12,
+          }
+        }
+        x={541}
+        y={302}
+      >
+        Mar 5
+      </text>
+    </g>
+    <g>
+      <polyline
+        points="0,0 0,278"
+        style={
+          Object {
+            "stroke": "#ccc",
+            "strokeWidth": 0.5,
+          }
+        }
+      />
+      <g>
+        <text
+          style={
+            Object {
+              "fill": "#ccc",
+              "fontSize": 12,
+            }
+          }
+          x={0}
+          y={206}
+        >
+          60
+        </text>
+        <polyline
+          points="0,218 561,218"
+          style={
+            Object {
+              "stroke": "#ccc",
+              "strokeWidth": 0.5,
+            }
+          }
+        />
+      </g>
+      <g>
+        <text
+          style={
+            Object {
+              "fill": "#ccc",
+              "fontSize": 12,
+            }
+          }
+          x={0}
+          y={146}
+        >
+          120
+        </text>
+        <polyline
+          points="0,158 561,158"
+          style={
+            Object {
+              "stroke": "#ccc",
+              "strokeWidth": 0.5,
+            }
+          }
+        />
+      </g>
+      <g>
+        <text
+          style={
+            Object {
+              "fill": "#ccc",
+              "fontSize": 12,
+            }
+          }
+          x={0}
+          y={86}
+        >
+          180
+        </text>
+        <polyline
+          points="0,98 561,98"
+          style={
+            Object {
+              "stroke": "#ccc",
+              "strokeWidth": 0.5,
+            }
+          }
+        />
+      </g>
+      <g>
+        <text
+          style={
+            Object {
+              "fill": "#ccc",
+              "fontSize": 12,
+            }
+          }
+          x={0}
+          y={26}
+        >
+          240
+        </text>
+        <polyline
+          points="0,38 561,38"
+          style={
+            Object {
+              "stroke": "#ccc",
+              "strokeWidth": 0.5,
+            }
+          }
+        />
+      </g>
+    </g>
+  </svg>
+  <div
+    data-testid="telegramChartMap"
+    style={
+      Object {
+        "backgroundColor": "#fafafa",
+        "height": "100%",
+        "width": 700,
+      }
+    }
+  >
+    <svg
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+      viewBox="0 0 561 56"
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "columnGap": 20,
+        "display": "flex",
+        "marginTop": 20,
+      }
+    }
+  />
+</div>
+`;

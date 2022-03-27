@@ -1,9 +1,37 @@
-import React from 'react';
+import React, {memo, useContext} from 'react';
 import {ChartAxis} from '../ChartAxis';
-//import {ChartLine} from '../ChartLine';
-import {PEDDING_CHART_SIZE} from '../../constants';
+import {ChartLine} from '../ChartLine';
 import {TTelegramChartLine} from './types';
 import {ChartLineClass} from '../../sampleClassComponent/components';
+import {ClassComponentContext} from '../../../../app';
+import {TChartDataLine} from '../../../../utils/prepareData/types';
+
+const Line = memo(
+  ({
+    hasClassComponent,
+    line,
+  }: {
+    hasClassComponent: boolean;
+    line: TChartDataLine;
+  }) => (
+    <>
+      {hasClassComponent ? (
+        <ChartLineClass
+          points={line.points}
+          stroke={line.color}
+          isVisible={line.isVisible}
+        />
+      ) : (
+        <ChartLine
+          points={line.points}
+          stroke={line.color}
+          isVisible={line.isVisible}
+        />
+      )}
+    </>
+  )
+);
+Line.displayName = 'Line';
 
 export const TelegramChartLine = ({
   data,
@@ -12,41 +40,38 @@ export const TelegramChartLine = ({
   labelsX,
   labelsY,
   width,
+  peddingSize = 0,
 }: TTelegramChartLine) => {
+  const {hasClassComponent} = useContext(ClassComponentContext);
   if (!data) return null;
   return (
     <svg
-      viewBox={`0 0 ${maxDataX + PEDDING_CHART_SIZE * 2} ${
-        maxDataY + PEDDING_CHART_SIZE
-      }`}
+      viewBox={`0 0 ${maxDataX + peddingSize} ${maxDataY + peddingSize}`}
       style={{width}}
     >
       {data.map((line) => (
-        <ChartLineClass
+        <Line
           key={line.name}
-          points={line.points}
-          stroke={line.color}
-          isVisible={line.isVisible}
+          hasClassComponent={hasClassComponent}
+          line={line}
         />
-        // <ChartLine
-        //   key={line.name}
-        //   points={line.points}
-        //   stroke={line.color}
-        //   isVisible={line.isVisible}
-        // />
       ))}
-      <ChartAxis
-        typeAxis="x"
-        labels={labelsX}
-        labelPaddingY={maxDataY}
-        points={`${0},${maxDataY} ${maxDataX},${maxDataY}`}
-      />
-      <ChartAxis
-        typeAxis="y"
-        labels={labelsY}
-        points={`${0},${0} ${0},${maxDataY}`}
-        maxDataX={maxDataX}
-      />
+      {labelsX && (
+        <ChartAxis
+          typeAxis="x"
+          labels={labelsX}
+          labelPaddingY={maxDataY}
+          points={`${0},${maxDataY} ${maxDataX},${maxDataY}`}
+        />
+      )}
+      {labelsY && (
+        <ChartAxis
+          typeAxis="y"
+          labels={labelsY}
+          points={`${0},${0} ${0},${maxDataY}`}
+          maxDataX={maxDataX}
+        />
+      )}
     </svg>
   );
 };

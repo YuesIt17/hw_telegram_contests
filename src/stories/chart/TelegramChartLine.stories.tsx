@@ -1,6 +1,7 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {TelegramChartLine} from '../../features/telegramChart/components';
+import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/mockData';
 
 export default {
   title: 'Example/TelegramChart',
@@ -17,10 +18,11 @@ export const TelegramChartLineExample = Template.bind({});
 TelegramChartLineExample.args = {
   data: [
     {
-      color: '#3DC23F',
+      color: COLOR_CHART_LINE_JOINED,
       name: '#0',
       points: '0,200 60,600 210,110 300,300 400,200',
       type: 'line',
+      pointsMap: '',
       isVisible: true,
     },
   ],

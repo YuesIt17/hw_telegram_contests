@@ -1,16 +1,24 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
-import App from './App';
+import {fireEvent, render, screen} from '@testing-library/react';
+import {App} from './App';
 import '@testing-library/jest-dom';
 
 describe('App test', () => {
-  test('Check render App component', () => {
-    render(<App />);
+  test('Check render App component with click checkbox Show/Hide Graph', () => {
+    const {queryByTestId} = render(<App />);
 
-    const checkBox = screen.getByTestId('isVisibleChart');
-    expect(checkBox).toBeInTheDocument();
+    const isVisibleChart = screen.getByTestId('isVisibleChart');
+    expect(isVisibleChart).toBeInTheDocument();
 
-    const telegramChart = screen.getByTestId('telegramChart');
-    expect(telegramChart).toBeInTheDocument();
+    fireEvent.click(isVisibleChart);
+    expect(queryByTestId('telegramChart')).toBeNull();
+
+    fireEvent.click(isVisibleChart);
+    expect(queryByTestId('telegramChart')).toBeInTheDocument();
+
+    const toggleClassComponent = screen.getByTestId('toggleClassComponent');
+    expect(toggleClassComponent).toBeInTheDocument();
+    fireEvent.click(toggleClassComponent);
+    expect(queryByTestId('telegramChartClass')).toBeInTheDocument();
   });
 });
