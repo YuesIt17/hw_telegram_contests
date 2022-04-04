@@ -1,13 +1,14 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import {TelegramChart} from './TelegramChart';
 import '@testing-library/jest-dom';
 
 describe('Telegram Chart test', () => {
   test('Check render TelegramChart component', () => {
-    const {queryByTestId} = render(<TelegramChart width={700} />);
+    const telegramChart = renderer
+      .create(<TelegramChart width={700} />)
+      .toJSON();
 
-    expect(queryByTestId('telegramChartMap')).toBeInTheDocument();
-    expect(queryByTestId('telegramChartFooter')).toBeInTheDocument();
+    expect(telegramChart).toMatchSnapshot();
   });
 });

@@ -13,12 +13,14 @@ import {omit} from '../../../../../utils/utils';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';
 import {useStyles} from '../../../containers/TelegramChart/styles';
 import {TChartClassData} from './types';
+import {PEDDING_CHART_SIZE} from '../../../constants';
+import {SerializedStyles} from '@emotion/react';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,
   TTelegramChartLine
 > {
-  styles: Record<'chart', React.CSSProperties | undefined>;
+  styles: {chart: SerializedStyles};
 
   constructor(props: TTelegramChart) {
     super(props);
@@ -72,13 +74,14 @@ export class TelegramChartClass extends React.Component<
 
   render() {
     return (
-      <div style={this.styles.chart} data-testid="telegramChartClass">
+      <div css={this.styles.chart} data-testid="telegramChartClass">
         <TelegramChartLine
           data={this.state.data}
           maxDataX={this.state.maxDataX}
           maxDataY={this.state.maxDataY}
           labelsX={this.state.labelsX}
           labelsY={this.state.labelsY}
+          peddingSize={PEDDING_CHART_SIZE}
         />
         <TelegramChartFooter
           data={this.state.data}

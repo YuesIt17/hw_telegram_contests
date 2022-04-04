@@ -1,17 +1,9 @@
-import {CSSProperties} from 'react';
+import {css} from '@emotion/react';
 
-export const useStyles = ({
-  width,
-}: {
-  width?: number;
-}): Record<'app' | 'toolbar', CSSProperties | undefined> => ({
-  app: {
-    display: 'grid',
-    justifyItems: 'center',
-  },
-  toolbar: {
-    width: width,
-    display: 'flex',
-    columnGap: 10,
-  },
+export const useStyles = () => ({
+  global: css({
+    body: {
+      margin: 0,
+    },
+  }),
 });

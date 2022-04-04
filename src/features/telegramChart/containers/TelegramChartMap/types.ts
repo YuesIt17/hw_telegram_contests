@@ -7,4 +7,6 @@ export type TTelegramChartMap = {
   maxDataY: number;
 };
 
-export type TTelegramChartMapStyle = Pick<TTelegramChartMap, 'width'>;
+export type TTelegramChartMapStyle = {
+  width: number;
+};

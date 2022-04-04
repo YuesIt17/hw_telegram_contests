@@ -1,3 +1,4 @@
+import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/mockData';
 import {TChartData} from '../../api/telegramChart/types';
 import {
   getColumnData,
@@ -21,7 +22,7 @@ const inputData = {
     y0: '#0',
   },
   colors: {
-    y0: '#3DC23F',
+    y0: COLOR_CHART_LINE_JOINED,
   },
 } as TChartData;
 
@@ -30,7 +31,7 @@ describe('Prepare data for chart', () => {
     const outputData = {
       lines: [
         {
-          color: '#3DC23F',
+          color: COLOR_CHART_LINE_JOINED,
           name: '#0',
           points: '1,0 6,17',
           pointsMap: '1,0 6,3',
@@ -61,7 +62,7 @@ describe('Prepare data for chart', () => {
     const columnData = {
       columnDataY: [
         {
-          color: '#3DC23F',
+          color: COLOR_CHART_LINE_JOINED,
           name: '#0',
           type: 'line',
           values: [37, 20],
@@ -96,7 +97,7 @@ describe('Prepare data for chart', () => {
   test('Check get prepare data axis y', () => {
     const columnDataY = [
       {
-        color: '#3DC23F',
+        color: COLOR_CHART_LINE_JOINED,
         name: '#0',
         type: 'line',
         values: [37, 20],

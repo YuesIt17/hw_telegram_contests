@@ -55,13 +55,15 @@ https://ru.reactjs.org/docs/static-type-checking.html
 
 - npx sb init
 
-7. Init jest and testing-library
+7. Init testing library
 
 - yarn add -D jest
 - yarn add -D @types/jest
 - add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
 - yarn add -D @testing-library/react
 - yarn add -D @testing-library/jest-dom
+- yarn add -D react-test-renderer
+- yarn add -D @types/react-test-renderer
 
 8. Init chromatic https://www.chromatic.com/
 
@@ -84,3 +86,18 @@ https://ru.reactjs.org/docs/static-type-checking.html
 10. Init react router 
 
 - yarn add react-router-dom@6
+
+11. Init styles
+- yarn add clsx
+
+css:
+- yarn add -D css-loader
+- yarn add -D style-loader
+
+sass:
+- yarn add -D sass
+- yarn add -D sass-loader
+
+emotion:
+- yarn add -D @emotion/styled @emotion/react
+- yarn add -D @emotion/babel-preset-css-prop

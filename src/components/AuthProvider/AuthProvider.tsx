@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useState,
 } from 'react';
 import {TAuthContex} from './types';
 
@@ -12,7 +13,7 @@ const AuthContext = createContext<TAuthContex>({});
 export const useAuthContext = (): TAuthContex => useContext(AuthContext);
 
 export const AuthProvider: FC = ({children}) => {
-  const [userName, setUserName] = React.useState<string>(
+  const [userName, setUserName] = useState<string>(
     localStorage.getItem('userName') || ''
   );
 

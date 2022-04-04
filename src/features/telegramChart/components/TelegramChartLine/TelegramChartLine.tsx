@@ -18,14 +18,13 @@ const Line = memo(
     line: TChartDataLine;
   }) => (
     <>
-      {hasClassComponent && (
+      {hasClassComponent ? (
         <ChartLineClass
           points={line.points}
           stroke={line.color}
           isVisible={line.isVisible}
         />
-      )}
-      {!hasClassComponent && (
+      ) : (
         <ChartLine
           points={line.points}
           stroke={line.color}
@@ -44,11 +43,15 @@ export const TelegramChartLine = ({
   labelsX,
   labelsY,
   width,
+  peddingSize = 0,
 }: TTelegramChartLine) => {
   const {hasClassComponent} = useContext(ClassComponentContext);
   if (!data) return null;
   return (
-    <svg viewBox={`0 0 ${maxDataX} ${maxDataY}`} style={{width}}>
+    <svg
+      viewBox={`0 0 ${maxDataX + peddingSize} ${maxDataY + peddingSize}`}
+      style={{width}}
+    >
       {data.map((line) => (
         <Line
           key={line.name}

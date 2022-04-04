@@ -2,6 +2,8 @@ import React, {Suspense} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Layout} from '../components/Layout';
 import {Auth} from '../features/auth';
+import {PageHello} from './PageHello';
+import {PageNotFound} from './PageNotFound';
 import {ProtectedRoute} from './ProtectedRoute';
 
 const TelegramChart = React.lazy(() => import('../features/telegramChart'));
@@ -18,7 +20,8 @@ const mainElement = (
             </Suspense>
           }
         />
-        <Route path="*" element={<div>NotFound</div>} />
+        <Route path="/hello" element={<PageHello />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Layout>
   </ProtectedRoute>

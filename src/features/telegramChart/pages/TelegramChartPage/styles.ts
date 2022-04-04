@@ -1,17 +1,14 @@
-import {CSSProperties} from 'react';
+import {css} from '@emotion/react';
 
-export const useStyles = ({
-  width,
-}: {
-  width?: number;
-}): Record<'app' | 'toolbar', CSSProperties | undefined> => ({
-  app: {
+export const useStyles = ({width}: {width?: number}) => ({
+  chartPage: css({
     display: 'grid',
     justifyItems: 'center',
-  },
-  toolbar: {
+    marginTop: 20,
+  }),
+  toolbar: css({
     width: width,
     display: 'flex',
     columnGap: 10,
-  },
+  }),
 });
