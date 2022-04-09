@@ -5,7 +5,7 @@ import {Button} from '../../Button';
 
 export const PageDefault: FC<TPageDefault> = ({
   children,
-  title,
+  title = '',
   buttonText,
   buttonHandler,
   style,
@@ -13,7 +13,10 @@ export const PageDefault: FC<TPageDefault> = ({
   const styles = useStyles();
 
   return (
-    <div css={(theme) => [styles.page(theme), style]}>
+    <div
+      css={(theme) => [styles.page(theme), style]}
+      data-testid={title.toLowerCase()}
+    >
       <h3>{title}</h3>
       <div css={styles.content}>{children}</div>
       {buttonText && buttonHandler && (

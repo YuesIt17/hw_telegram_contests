@@ -59,9 +59,11 @@ https://ru.reactjs.org/docs/static-type-checking.html
 
 - yarn add -D jest
 - yarn add -D @types/jest
-- add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
+- yarn add -D babel-jest
+  add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
 - yarn add -D @testing-library/react
 - yarn add -D @testing-library/jest-dom
+- yarn add -D @testing-library/user-event https://testing-library.com/docs/ecosystem-user-event/
 - yarn add -D react-test-renderer
 - yarn add -D @types/react-test-renderer
 

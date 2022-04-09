@@ -18,7 +18,7 @@ export function TelegramChartPage() {
   } = useTelegramChartPage();
 
   return (
-    <div css={styles.chartPage}>
+    <div css={styles.chartPage} data-testid="telegramChartPage">
       <div css={styles.toolbar}>
         <CheckBox
           label={'Show/Hide Graph'}

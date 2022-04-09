@@ -15,7 +15,7 @@ export const Auth: FC = memo(() => {
       buttonHandler={onLoginHandler}
       style={styles.page}
     >
-      <Input onChange={onChangeHandler} />
+      <Input onChange={onChangeHandler} placeholder="User name" />
     </PageDefault>
   );
 });
