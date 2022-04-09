@@ -27,6 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: "Project check"
-        run: |
-          npm i
-          npm run precommit
+        run: npm run precommit
