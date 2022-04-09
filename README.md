@@ -103,4 +103,4 @@ sass:
 emotion:
 - yarn add -D @emotion/styled @emotion/react
 - yarn add -D @emotion/babel-preset-css-prop
-- yarn add -D storybook-addon-emotion-theme
+- yarn add -D @react-theming/storybook-addon https://storybook.js.org/addons/@react-theming/storybook-addon
