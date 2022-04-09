@@ -33,7 +33,12 @@ export const AuthProvider: FC = ({children}) => {
     setUserName('');
   }, []);
 
-  const contextValue = {userName, login, logout} as TAuthContex;
+  const contextValue = {
+    userName,
+    isUserAuthorization: !!userName,
+    login,
+    logout,
+  } as TAuthContex;
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

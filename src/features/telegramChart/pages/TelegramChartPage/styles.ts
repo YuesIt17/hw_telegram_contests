@@ -4,7 +4,7 @@ export const useStyles = ({width}: {width?: number}) => ({
   chartPage: css({
     display: 'grid',
     justifyItems: 'center',
-    marginTop: 20,
+    paddingTop: 20,
   }),
   toolbar: css({
     width: width,

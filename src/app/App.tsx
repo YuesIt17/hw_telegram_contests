@@ -4,12 +4,21 @@ import {AppRouter} from '../router';
 import {useStyles} from './styles';
 import {Global, Theme, ThemeProvider} from '@emotion/react';
 
-const defaultColor = '#ffff';
+const defaultColor = '#ffffff';
 
-const theme: Theme = {
+export const theme: Theme = {
+  name: 'main',
   colors: {
-    primary: '#1976d2',
-    outlined: defaultColor,
+    primary: {
+      light: '#e3f2fd',
+      main: '#1976d2',
+      dark: '#1565c0',
+    },
+    secondary: {
+      light: defaultColor,
+      main: '#fafafa',
+      dark: '#e0e0e0',
+    },
   },
   paper: {
     backgroundColor: defaultColor,

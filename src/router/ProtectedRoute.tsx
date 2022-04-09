@@ -4,9 +4,9 @@ import {useAuthContext} from '../components/AuthProvider';
 import {NavigationState} from './types';
 
 export const ProtectedRoute: FC = ({children}) => {
-  const {userName} = useAuthContext();
+  const {isUserAuthorization} = useAuthContext();
   const location = useLocation();
-  if (userName) return React.Children.only(children as ReactElement);
+  if (isUserAuthorization) return React.Children.only(children as ReactElement);
   return (
     <Navigate to="/auth" state={{from: location} as NavigationState} replace />
   );

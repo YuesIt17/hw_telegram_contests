@@ -1,5 +1,6 @@
 import React, {FC, memo} from 'react';
-import {PageDefault} from '../../../../components/PageDefault';
+import {Input} from '../../../../components/Input';
+import {PageDefault} from '../../../../components/Page';
 import {useAuth} from './hook';
 import {useStyles} from './styles';
 
@@ -12,8 +13,9 @@ export const Auth: FC = memo(() => {
       title="Authorization"
       buttonText="Login"
       buttonHandler={onLoginHandler}
+      style={styles.page}
     >
-      <input css={styles.input} onChange={onChangeHandler}></input>
+      <Input onChange={onChangeHandler} />
     </PageDefault>
   );
 });

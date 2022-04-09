@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {PageDefault} from '../../components/PageDefault';
+import {PageDefault} from '..';
 import {useStyles} from './styles';
 
 export const PageNotFound = () => {

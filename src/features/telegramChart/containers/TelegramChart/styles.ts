@@ -4,8 +4,7 @@ import {TTelegramChartStyle} from './types';
 export const useStyles = ({width}: TTelegramChartStyle) => ({
   chart: css({
     width: width,
-    marginTop: 20,
-    marginBottom: 20,
+    padding: '20px 0',
     alignSelf: 'flex-start',
   }),
 });

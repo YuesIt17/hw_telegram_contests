@@ -1,5 +1,5 @@
 import React from 'react';
-import {PageDefault} from '../../components/PageDefault';
+import {PageDefault} from '..';
 import {usePageHello} from './hook';
 import {useStyles} from './styles';
 
@@ -9,7 +9,7 @@ export const PageHello = () => {
 
   return (
     <PageDefault title="Hello!" buttonText="Go" buttonHandler={onHidePageHello}>
-      <div css={styles.page}>
+      <div css={styles.content}>
         {`Welcome to the Project Telegram contest chart.`}
       </div>
     </PageDefault>

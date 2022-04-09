@@ -1,5 +1,6 @@
 type TAuthUser = {
   userName: string;
+  isUserAuthorization: boolean;
 };
 
 type TAuthCallbacks = {

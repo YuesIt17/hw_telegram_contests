@@ -1,7 +1,7 @@
 import {ChangeEvent, useCallback, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useAuthContext} from '../../../../components/AuthProvider';
-import {usePageHello} from '../../../../router/PageHello';
+import {usePageHello} from '../../../../components/Page';
 import {NavigationState} from '../../../../router/types';
 
 export const useAuth = () => {
