@@ -1,8 +1,7 @@
 import React from 'react';
 import {AuthProvider} from '../components/AuthProvider';
 import {AppRouter} from '../router';
-import {useStyles} from './styles';
-import {Global, Theme, ThemeProvider} from '@emotion/react';
+import {css, Global, Theme, ThemeProvider} from '@emotion/react';
 
 const defaultColor = '#ffffff';
 
@@ -25,11 +24,16 @@ export const theme: Theme = {
   },
 };
 
+const globalStyle = css({
+  body: {
+    margin: 0,
+  },
+});
+
 export function App() {
-  const styles = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <Global styles={styles.global} />
+      <Global styles={globalStyle} />
       <div css={(theme: Theme) => theme.paper}>
         <AuthProvider>
           <AppRouter />

@@ -4,7 +4,7 @@ type TAuthUser = {
 };
 
 type TAuthCallbacks = {
-  login: (userName: string) => void;
+  login: (newUserName: string) => void;
   logout: () => void;
 };
 
