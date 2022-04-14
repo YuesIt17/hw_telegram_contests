@@ -66,6 +66,7 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - yarn add -D @testing-library/user-event https://testing-library.com/docs/ecosystem-user-event/
 - yarn add -D react-test-renderer
 - yarn add -D @types/react-test-renderer
+- yarn add -D @testing-library/react-hooks
 
 8. Init chromatic https://www.chromatic.com/
 

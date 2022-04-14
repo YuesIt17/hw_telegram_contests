@@ -2,14 +2,14 @@ import React from 'react';
 import {
   TChartDataLabel,
   TChartDataLine,
-} from '../../../../../utils/prepareData/types';
+  prepareData,
+  omit,
+} from '../../../../../utils';
 import {ChartAction} from '../../../store/actions';
 import {reducer} from '../../../store/reducer';
-import {prepareData} from '../../../../../utils/prepareData/prepareData';
 import {mockDataCharts} from '../../../../../api/telegramChart';
 import {TelegramChartFooter, TelegramChartLine} from '../../../components';
 import {TTelegramChartLine} from '../../../components/TelegramChartLine/types';
-import {omit} from '../../../../../utils/utils';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';
 import {useStyles} from '../../../containers/TelegramChart/styles';
 import {TChartClassData} from './types';

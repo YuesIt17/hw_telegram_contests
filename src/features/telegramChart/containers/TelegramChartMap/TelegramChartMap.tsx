@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {TelegramChartLine} from '../../components';
 import {TTelegramChartMap} from './types';
 import {CHART_DELTA_MAP_Y} from '../../constants';
-import {TChartDataLine} from '../../../../utils/prepareData/types';
+import {TChartDataLine} from '../../../../utils';
 import {useStyles} from './styles';
 
 const getChartData = (data: TChartDataLine[]) =>

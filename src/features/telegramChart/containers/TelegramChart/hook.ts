@@ -1,7 +1,6 @@
 import {useEffect, useMemo, useReducer} from 'react';
 import {mockDataCharts} from '../../../../api/telegramChart';
-import {prepareData} from '../../../../utils/prepareData/prepareData';
-import {TChartDataLine} from '../../../../utils/prepareData/types';
+import {prepareData, TChartDataLine} from '../../../../utils/';
 import {ChartAction} from '../../store/actions';
 import {reducer} from '../../store/reducer';
 

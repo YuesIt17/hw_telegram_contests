@@ -1,6 +1,6 @@
 import React, {FC, memo} from 'react';
 import {Input} from '../../../../components/Input';
-import {PageDefault} from '../../../../components/Page';
+import {PageDefault} from '../../../../components/Pages';
 import {useAuth} from './hook';
 import {useStyles} from './styles';
 

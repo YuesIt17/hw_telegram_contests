@@ -1,7 +1,7 @@
 import React from 'react';
 import {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {authTestRender} from '../../../../utils/tests';
+import {authTestRender} from '../../../../utils';
 import {AppRouter} from '../../../../router';
 
 describe('Auth test', () => {

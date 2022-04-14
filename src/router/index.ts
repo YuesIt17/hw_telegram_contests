@@ -1,2 +1,2 @@
 export {AppRouter} from './AppRouter';
-export {ProtectedRoute} from './ProtectedRoute';
+export {usePageHello} from './PageHello';

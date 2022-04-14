@@ -3,8 +3,9 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {useAuthContext} from '../components/AuthProvider';
 import {Layout} from '../components/Layout';
 import {Auth} from '../features/auth';
-import {PageHello, usePageHello} from '../components/Page';
-import {PageNotFound} from '../components/Page';
+import {AuthActions} from '../features/auth/containers/AuthActions';
+import {PageHello, usePageHello} from './PageHello';
+import {PageNotFound} from './PageNotFound';
 import {ProtectedRoute} from './ProtectedRoute';
 
 const TelegramChart = React.lazy(() => import('../features/telegramChart'));
@@ -13,7 +14,7 @@ const MainRoute = () => {
   const {isVisiblePageHello} = usePageHello();
   return (
     <ProtectedRoute>
-      <Layout>
+      <Layout actions={<AuthActions />}>
         <Routes>
           <Route
             index

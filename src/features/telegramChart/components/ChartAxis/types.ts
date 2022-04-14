@@ -1,4 +1,4 @@
-import {TChartDataLabel} from '../../../../utils/prepareData/types';
+import {TChartDataLabel} from '../../../../utils';
 
 export type TChartAxis = {
   points: string;
