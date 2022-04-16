@@ -1,13 +1,13 @@
-import {CSSProperties} from 'react';
+import {css} from '@emotion/react';
 import {FONT_SIZE} from '../../constants';
 
-export const useStyles = (): Record<'line' | 'label', CSSProperties> => ({
-  line: {
+export const useStyles = () => ({
+  line: css({
     stroke: '#ccc',
     strokeWidth: 0.5,
-  },
-  label: {
+  }),
+  label: css({
     fontSize: FONT_SIZE,
     fill: '#ccc',
-  },
+  }),
 });

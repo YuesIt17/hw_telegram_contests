@@ -59,11 +59,14 @@ https://ru.reactjs.org/docs/static-type-checking.html
 
 - yarn add -D jest
 - yarn add -D @types/jest
-- add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
+- yarn add -D babel-jest
+  add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
 - yarn add -D @testing-library/react
 - yarn add -D @testing-library/jest-dom
+- yarn add -D @testing-library/user-event https://testing-library.com/docs/ecosystem-user-event/
 - yarn add -D react-test-renderer
 - yarn add -D @types/react-test-renderer
+- yarn add -D @testing-library/react-hooks
 
 8. Init chromatic https://www.chromatic.com/
 
@@ -82,3 +85,23 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - yarn create @eslint/config
 - yarn add -D eslint-plugin-react
 - echo {}> .prettierrc.json - if there is a problem with encoding https://github.com/prettier/prettier/issues/8815
+
+10. Init react router 
+
+- yarn add react-router-dom@6
+
+11. Init styles
+- yarn add clsx
+
+css:
+- yarn add -D css-loader
+- yarn add -D style-loader
+
+sass:
+- yarn add -D sass
+- yarn add -D sass-loader
+
+emotion:
+- yarn add -D @emotion/styled @emotion/react
+- yarn add -D @emotion/babel-preset-css-prop
+- yarn add -D @react-theming/storybook-addon https://storybook.js.org/addons/@react-theming/storybook-addon

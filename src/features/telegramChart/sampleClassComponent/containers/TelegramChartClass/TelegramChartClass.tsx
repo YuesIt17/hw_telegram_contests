@@ -2,24 +2,25 @@ import React from 'react';
 import {
   TChartDataLabel,
   TChartDataLine,
-} from '../../../../../utils/prepareData/types';
+  prepareData,
+  omit,
+} from '../../../../../utils';
 import {ChartAction} from '../../../store/actions';
 import {reducer} from '../../../store/reducer';
-import {prepareData} from '../../../../../utils/prepareData/prepareData';
 import {mockDataCharts} from '../../../../../api/telegramChart';
 import {TelegramChartFooter, TelegramChartLine} from '../../../components';
 import {TTelegramChartLine} from '../../../components/TelegramChartLine/types';
-import {omit} from '../../../../../utils/utils';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';
 import {useStyles} from '../../../containers/TelegramChart/styles';
 import {TChartClassData} from './types';
 import {PEDDING_CHART_SIZE} from '../../../constants';
+import {SerializedStyles} from '@emotion/react';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,
   TTelegramChartLine
 > {
-  styles: Record<'chart', React.CSSProperties | undefined>;
+  styles: {chart: SerializedStyles};
 
   constructor(props: TTelegramChart) {
     super(props);
@@ -73,7 +74,7 @@ export class TelegramChartClass extends React.Component<
 
   render() {
     return (
-      <div style={this.styles.chart} data-testid="telegramChartClass">
+      <div css={this.styles.chart} data-testid="telegramChartClass">
         <TelegramChartLine
           data={this.state.data}
           maxDataX={this.state.maxDataX}

@@ -15,14 +15,14 @@ export const ChartAxis = memo(
     const styles = useStyles();
     return (
       <g>
-        <polyline style={styles.line} points={points} />
+        <polyline css={styles.line} points={points} />
         {typeAxis === 'x' &&
           labels.map((item, index) => (
             <text
               key={index}
               x={item.coordinate}
               y={labelPaddingY + FONT_SIZE * 2}
-              style={styles.label}
+              css={styles.label}
             >
               {item.label}
             </text>
@@ -33,12 +33,12 @@ export const ChartAxis = memo(
               <text
                 x={labelPaddingX}
                 y={item.coordinate - FONT_SIZE}
-                style={styles.label}
+                css={styles.label}
               >
                 {item.label}
               </text>
               <polyline
-                style={styles.line}
+                css={styles.line}
                 points={`${labelPaddingX},${item.coordinate} ${maxDataX},${item.coordinate}`}
               />
             </g>

@@ -11,6 +11,8 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    //https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
@@ -29,6 +31,25 @@ const config = {
         test: /\.(js|ts)x?$/i,
         loader: "babel-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(c|s)a?ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+        exclude: /\.module\.s([aс])ss$/,
+      },
+      {
+        test: /\.(c|s)a?ss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader",
+        ],
+        include: /\.module\.(c|s)a?ss$/,
       },
     ],
   },
