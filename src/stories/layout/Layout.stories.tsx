@@ -9,7 +9,9 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Layout>;
 
-export const LayoutExample: ComponentStory<typeof Layout> = (args) => <Layout {...args} />;
+export const LayoutExample: ComponentStory<typeof Layout> = (args) => (
+  <Layout {...args} />
+);
 
 LayoutExample.args = {
   actions: (
