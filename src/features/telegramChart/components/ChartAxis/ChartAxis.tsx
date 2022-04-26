@@ -1,4 +1,5 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
+import {TChartDataLabel} from 'utils/types';
 import {FONT_SIZE} from '../../constants';
 import {useStyles} from './styles';
 import {TChartAxis} from './types';
@@ -13,6 +14,16 @@ export const ChartAxis = memo(
     maxDataX,
   }: TChartAxis) => {
     const styles = useStyles();
+    const coordinateY = useCallback(
+      (item?: TChartDataLabel) =>
+        typeAxis === 'x'
+          ? labelPaddingY + FONT_SIZE * 2
+          : item && item.coordinate >= FONT_SIZE
+          ? item.coordinate - FONT_SIZE
+          : 0,
+      [typeAxis, labelPaddingY]
+    );
+
     return (
       <g>
         <polyline css={styles.line} points={points} />
@@ -21,7 +32,7 @@ export const ChartAxis = memo(
             <text
               key={index}
               x={item.coordinate}
-              y={labelPaddingY + FONT_SIZE * 2}
+              y={coordinateY()}
               css={styles.label}
             >
               {item.label}
@@ -30,11 +41,7 @@ export const ChartAxis = memo(
         {typeAxis === 'y' &&
           labels.map((item, index) => (
             <g key={index}>
-              <text
-                x={labelPaddingX}
-                y={item.coordinate - FONT_SIZE}
-                css={styles.label}
-              >
+              <text x={labelPaddingX} y={coordinateY(item)} css={styles.label}>
                 {item.label}
               </text>
               <polyline

@@ -12,6 +12,7 @@ declare module '@emotion/react' {
     colors: {
       primary: Record<TColorStyle, Property.Color>;
       secondary: Record<TColorStyle, Property.Color>;
+      font: Partial<Record<TColorStyle, Property.Color>>;
     };
   }
 }

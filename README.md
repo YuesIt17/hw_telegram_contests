@@ -105,3 +105,10 @@ emotion:
 - yarn add -D @emotion/styled @emotion/react
 - yarn add -D @emotion/babel-preset-css-prop
 - yarn add -D @react-theming/storybook-addon https://storybook.js.org/addons/@react-theming/storybook-addon
+
+12. Init lodash
+- yarn add -D lodash @types/lodash
+- yarn add -D lodash-webpack-plugin babel-plugin-lodash
+
+13. Add alias
+- yarn add -D tsconfig-paths-webpack-plugin

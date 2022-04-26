@@ -1,4 +1,4 @@
-import {TChartDataLine} from '../../../../utils';
+import {TChartDataLine} from '@/utils/types';
 
 export type TTelegramChartMap = {
   width: number;

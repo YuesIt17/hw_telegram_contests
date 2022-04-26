@@ -1,7 +1,7 @@
 import React from 'react';
-import {AuthProvider} from '../components/AuthProvider';
 import {AppRouter} from '../router';
 import {css, Global, Theme, ThemeProvider} from '@emotion/react';
+import {AuthProvider} from '@/components/AuthProvider';
 
 const defaultColor = '#ffffff';
 
@@ -16,7 +16,10 @@ export const theme: Theme = {
     secondary: {
       light: defaultColor,
       main: '#fafafa',
-      dark: '#e0e0e0',
+      dark: '#bdbdbd',
+    },
+    font: {
+      dark: '#424242',
     },
   },
   paper: {

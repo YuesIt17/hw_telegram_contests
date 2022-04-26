@@ -1,7 +1,6 @@
+import {useAuthContext, Layout} from '@/components';
 import React, {Suspense} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {useAuthContext} from '../components/AuthProvider';
-import {Layout} from '../components/Layout';
 import {Auth} from '../features/auth';
 import {AuthActions} from '../features/auth/containers/AuthActions';
 import {PageHello, usePageHello} from './PageHello';

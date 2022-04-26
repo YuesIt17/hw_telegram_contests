@@ -1,5 +1,5 @@
+import {CheckBox} from '@/components';
 import React, {createContext} from 'react';
-import {CheckBox} from '../../../../components/CheckBox';
 import {CHART_WIDTH} from '../../constants';
 import {TelegramChart} from '../../containers';
 import {TelegramChartClass} from '../../sampleClassComponent/containers';
@@ -24,14 +24,12 @@ export function TelegramChartPage() {
           label={'Show/Hide Graph'}
           name="isVisibleChart"
           value={isVisibleChart}
-          color="#1565c0"
           onChange={onChangeVisibleHadler}
         />
         <CheckBox
           label={'Use class component'}
           name="toggleClassComponent"
           value={toggleClassComponent}
-          color="#1565c0"
           onChange={onToggleClassComponent}
         />
       </div>

@@ -1,12 +1,11 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {Layout} from '../../components/Layout';
-import {Button} from '../../components/Button';
+import {AuthActions} from '../../features/auth/containers/AuthActions';
+import {Layout} from '@/components';
 
 export default {
   title: 'Example/Layout',
   component: Layout,
-  argTypes: {},
 } as ComponentMeta<typeof Layout>;
 
 export const LayoutExample: ComponentStory<typeof Layout> = (args) => (
@@ -14,14 +13,7 @@ export const LayoutExample: ComponentStory<typeof Layout> = (args) => (
 );
 
 LayoutExample.args = {
-  actions: (
-    <div>
-      {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-      <Button variant="primary" onClick={() => {}}>
-        My actions
-      </Button>
-    </div>
-  ),
+  actions: <AuthActions />,
   children: (
     <div
       style={{

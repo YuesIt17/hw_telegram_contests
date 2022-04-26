@@ -1,4 +1,4 @@
-import {TColumnsValueAxis} from '../../api/telegramChart/types';
+import {TColumnsValueAxis} from '../api/telegramChart/types';
 
 export type TColumnValue = {
   values: TColumnsValueAxis;
@@ -27,4 +27,9 @@ export type TChartPrepareData = {
   maxDataY: number;
   labelsX?: TChartDataLabel[];
   labelsY?: TChartDataLabel[];
+};
+
+export type TCoordinatePoint = {
+  x: number;
+  y: number;
 };

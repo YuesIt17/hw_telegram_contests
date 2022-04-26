@@ -1,6 +1,6 @@
+import {useAuthContext} from '@/components/AuthProvider';
 import React, {ReactElement, FC} from 'react';
 import {Navigate, useLocation} from 'react-router-dom';
-import {useAuthContext} from '../../components/AuthProvider';
 import {NavigationState} from '../types';
 
 export const ProtectedRoute: FC = ({children}) => {

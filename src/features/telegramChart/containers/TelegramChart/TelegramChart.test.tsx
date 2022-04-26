@@ -1,13 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import {themeTestRenderer} from '@/utils/tests';
 import {TelegramChart} from './TelegramChart';
-import '@testing-library/jest-dom';
 
 describe('Telegram Chart test', () => {
   test('Check render TelegramChart component', () => {
-    const telegramChart = renderer
-      .create(<TelegramChart width={700} />)
-      .toJSON();
+    const telegramChart = themeTestRenderer(
+      <TelegramChart width={700} />
+    ).toJSON();
 
     expect(telegramChart).toMatchSnapshot();
   });

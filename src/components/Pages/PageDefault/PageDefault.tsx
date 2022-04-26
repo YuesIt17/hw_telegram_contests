@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TPageDefault} from './types';
 import {useStyles} from './styles';
-import {Button} from '../../Button';
+import {Button} from '@/components';
 
 export const PageDefault: FC<TPageDefault> = ({
   children,

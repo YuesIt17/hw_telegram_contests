@@ -1,7 +1,7 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {TelegramChartMap} from '../../features/telegramChart/containers';
-import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/mockData';
+import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/constants';
 
 export default {
   title: 'Example/TelegramChart',

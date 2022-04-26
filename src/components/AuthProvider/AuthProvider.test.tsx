@@ -1,9 +1,8 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import '@testing-library/jest-dom';
 import {AuthProvider, useAuthContext} from './AuthProvider';
 import {act, renderHook} from '@testing-library/react-hooks';
-import {authWrapper} from '../../utils';
+import {authWrapper} from '@/utils/tests';
 
 describe('AuthProvider test', () => {
   test('Check shows default value', () => {

@@ -1,13 +1,18 @@
-import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/mockData';
+import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/constants';
 import {TChartData} from '../../api/telegramChart/types';
 import {
   getColumnData,
   getPrepareDataAxisX,
   getPrepareDataAxisY,
-  parseDateTimeToInt,
+  mapPointCoordinates,
   prepareData,
 } from './prepareData';
-import {TChartDataLabel, TChartDataLine} from './types';
+import {
+  TChartDataLabel,
+  TChartDataLine,
+  TColumnValue,
+  TCoordinatePoint,
+} from '../types';
 
 const inputData = {
   columns: [
@@ -74,10 +79,6 @@ describe('Prepare data for chart', () => {
     expect(getColumnData(inputData)).toEqual(columnData);
   });
 
-  test('Check parse format date time to int', () => {
-    expect(parseDateTimeToInt('1542412800000', 1)).toBe(6);
-  });
-
   test('Check get prepare data axis x', () => {
     const dataValuesX = [1542412800000, 1542499200000];
     const dataAxisX = {
@@ -102,7 +103,8 @@ describe('Prepare data for chart', () => {
         type: 'line',
         values: [37, 20],
       },
-    ];
+    ] as TColumnValue[];
+
     const dataAxisY = {
       labelsY: [
         {
@@ -114,5 +116,35 @@ describe('Prepare data for chart', () => {
     };
 
     expect(getPrepareDataAxisY(columnDataY)).toEqual(dataAxisY);
+  });
+
+  test('Check map point coordinates with delta Y', () => {
+    const points = [
+      {
+        x: 1,
+        y: 2,
+      },
+      {
+        x: 2,
+        y: 3,
+      },
+    ] as TCoordinatePoint[];
+
+    expect(mapPointCoordinates(points, 2)).toEqual(['1,1', '2,2']);
+  });
+
+  test('Check map point coordinates without delta Y', () => {
+    const points = [
+      {
+        x: 1,
+        y: 2,
+      },
+      {
+        x: 2,
+        y: 3,
+      },
+    ] as TCoordinatePoint[];
+
+    expect(mapPointCoordinates(points)).toEqual(['1,2', '2,3']);
   });
 });

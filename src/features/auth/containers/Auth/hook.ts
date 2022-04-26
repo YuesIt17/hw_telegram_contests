@@ -1,6 +1,6 @@
+import {useAuthContext} from '@/components/AuthProvider';
 import {ChangeEvent, useCallback, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
-import {useAuthContext} from '../../../../components/AuthProvider';
 import {usePageHello} from '../../../../router';
 import {NavigationState} from '../../../../router/types';
 

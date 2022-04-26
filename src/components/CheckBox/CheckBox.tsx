@@ -1,22 +1,26 @@
-import React, {useState} from 'react';
+import {theme} from '@/app/App';
+import React, {useMemo} from 'react';
 import {CheckCircleIcon} from '../Icons';
+import {useCheckBox} from './hook';
 import {useStyles} from './styles';
 import {TCheckBox} from './types';
 
 export function CheckBox({label, name, value, color, onChange}: TCheckBox) {
   const styles = useStyles();
-  const [field, setFieldValue] = useState({name, value});
-  const checkedColor = field.value ? color : 'transparent';
-  const onClickHandler = () => {
-    const updatedField = {name, value: !field.value};
-    setFieldValue(updatedField);
-    onChange && onChange(updatedField);
-  };
+  const {field, onClickHandler} = useCheckBox({name, value, onChange});
+  const defaultColor = useMemo(
+    () => color || theme.colors.primary.dark,
+    [color, theme]
+  );
+  const checkedColor = useMemo(
+    () => (field.value ? defaultColor : 'transparent'),
+    [field, defaultColor]
+  );
 
   return (
     <button css={styles.button} onClick={onClickHandler} data-testid={name}>
       <div css={styles.icon}>
-        <CheckCircleIcon fill={checkedColor} stroke={color} />
+        <CheckCircleIcon fill={checkedColor} stroke={defaultColor} />
       </div>
       <div css={styles.label}>{label}</div>
     </button>
