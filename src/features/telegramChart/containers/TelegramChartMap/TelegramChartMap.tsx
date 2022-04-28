@@ -21,10 +21,13 @@ export const TelegramChartMap = ({
 }: TTelegramChartMap) => {
   const styles = useStyles({width});
   const maxDataMapY = useMemo(
-    () => Math.round(maxDataY / CHART_DELTA_MAP_Y),
+    () =>
+      maxDataY >= CHART_DELTA_MAP_Y
+        ? Math.round(maxDataY / CHART_DELTA_MAP_Y)
+        : 0,
     [maxDataY]
   );
-  const chartData = getChartData(data);
+  const chartData = useMemo(() => getChartData(data), [data]);
 
   if (!chartData) return null;
   return (

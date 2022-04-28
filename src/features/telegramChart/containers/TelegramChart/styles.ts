@@ -3,7 +3,7 @@ import {TTelegramChartStyle} from './types';
 
 export const useStyles = ({width}: TTelegramChartStyle) => ({
   chart: css({
-    width: width,
+    width,
     padding: '20px 0',
     alignSelf: 'flex-start',
   }),

@@ -1,6 +1,6 @@
 import {TChartDataLine} from '@/utils/types';
 
 export type TTelegramChartFooter = {
-  data: TChartDataLine[];
+  data: TChartDataLine[] | undefined;
   onChange: (line: TChartDataLine, isVisible: boolean) => void;
 };

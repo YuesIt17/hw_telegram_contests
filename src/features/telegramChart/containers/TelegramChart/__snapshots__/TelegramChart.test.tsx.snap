@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Telegram Chart test Check render TelegramChart component 1`] = `
+exports[`TelegramChart test Check render TelegramChart component 1`] = `
 <div
   className="css-1km59tu-chart"
   data-testid="telegramChart"
