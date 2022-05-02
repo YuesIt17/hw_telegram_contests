@@ -1,5 +1,5 @@
 import {theme} from '@/app/App';
-import React, {useMemo} from 'react';
+import React from 'react';
 import {CheckCircleIcon} from '../Icons';
 import {useCheckBox} from './hook';
 import {useStyles} from './styles';
