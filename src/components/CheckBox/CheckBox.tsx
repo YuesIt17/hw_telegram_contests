@@ -8,14 +8,8 @@ import {TCheckBox} from './types';
 export function CheckBox({label, name, value, color, onChange}: TCheckBox) {
   const styles = useStyles();
   const {field, onClickHandler} = useCheckBox({name, value, onChange});
-  const defaultColor = useMemo(
-    () => color || theme.colors.primary.dark,
-    [color, theme]
-  );
-  const checkedColor = useMemo(
-    () => (field.value ? defaultColor : 'transparent'),
-    [field, defaultColor]
-  );
+  const defaultColor = color || theme.colors.primary.dark;
+  const checkedColor = field.value ? defaultColor : 'transparent';
 
   return (
     <button css={styles.button} onClick={onClickHandler} data-testid={name}>
