@@ -8,8 +8,17 @@
     "strict": true,
     "esModuleInterop": true,
     "outDir": "compiled",
+    "baseUrl": "./",
     "paths": {
-      "@utils": ["./src/utils"]
-    }
-  }
+      "utils/*": ["src/utils/*"],
+      "components/*": ["src/components/*"],
+      "@/*": ["src/*"]
+    },
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

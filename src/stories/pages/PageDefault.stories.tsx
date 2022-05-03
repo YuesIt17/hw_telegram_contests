@@ -1,7 +1,7 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import {PageDefault} from '../../components/Pages';
 import {css} from '@emotion/react';
+import {PageDefault} from '@/components';
 
 export default {
   title: 'Example/Pages',

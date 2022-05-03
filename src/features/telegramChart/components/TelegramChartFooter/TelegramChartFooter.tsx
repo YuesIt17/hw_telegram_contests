@@ -1,5 +1,5 @@
+import {CheckBox} from '@/components';
 import React from 'react';
-import {CheckBox} from '../../../../components/CheckBox';
 import {useStyles} from './styles';
 import {TTelegramChartFooter} from './types';
 

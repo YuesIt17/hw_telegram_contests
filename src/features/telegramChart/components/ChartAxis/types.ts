@@ -1,4 +1,4 @@
-import {TChartDataLabel} from '../../../../utils';
+import {TChartDataLabel} from '@/utils/types';
 
 export type TChartAxis = {
   points: string;

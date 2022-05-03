@@ -1,4 +1,4 @@
-import {TChartDataLine, TChartPrepareData} from '../../../../utils';
+import {TChartDataLine, TChartPrepareData} from '@/utils/types';
 
 export type TTelegramChartLine = {
   data: TChartDataLine[];

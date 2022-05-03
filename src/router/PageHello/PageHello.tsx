@@ -1,5 +1,5 @@
+import {PageDefault} from '@/components';
 import React from 'react';
-import {PageDefault} from '../../components/Pages';
 import {usePageHello} from './hook';
 import {useStyles} from './styles';
 

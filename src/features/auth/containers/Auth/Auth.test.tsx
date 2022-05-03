@@ -1,8 +1,8 @@
 import React from 'react';
 import {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {authTestRender} from '../../../../utils';
 import {AppRouter} from '../../../../router';
+import {authTestRender} from '@/utils/tests';
 
 describe('Auth test', () => {
   test('Check user authorization', async () => {

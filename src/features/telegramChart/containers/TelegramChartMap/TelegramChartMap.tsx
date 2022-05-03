@@ -2,8 +2,8 @@ import React, {useMemo} from 'react';
 import {TelegramChartLine} from '../../components';
 import {TTelegramChartMap} from './types';
 import {CHART_DELTA_MAP_Y} from '../../constants';
-import {TChartDataLine} from '../../../../utils';
 import {useStyles} from './styles';
+import {TChartDataLine} from '@/utils/types';
 
 const getChartData = (data: TChartDataLine[]) =>
   data.map((item) => {
@@ -21,10 +21,13 @@ export const TelegramChartMap = ({
 }: TTelegramChartMap) => {
   const styles = useStyles({width});
   const maxDataMapY = useMemo(
-    () => Math.round(maxDataY / CHART_DELTA_MAP_Y),
+    () =>
+      maxDataY >= CHART_DELTA_MAP_Y
+        ? Math.round(maxDataY / CHART_DELTA_MAP_Y)
+        : 0,
     [maxDataY]
   );
-  const chartData = getChartData(data);
+  const chartData = useMemo(() => getChartData(data), [data]);
 
   if (!chartData) return null;
   return (

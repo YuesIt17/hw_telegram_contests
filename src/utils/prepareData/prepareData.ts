@@ -1,3 +1,4 @@
+import {forEach, map, max, reduce, round} from 'lodash';
 import {
   TChartData,
   TColumnKeyValue,
@@ -8,7 +9,14 @@ import {
   SPACE_BETWEEN_LABEL_X,
   SPACE_BETWEEN_LABEL_Y,
 } from '../../features/telegramChart/constants';
-import {TChartDataLabel, TChartPrepareData, TColumnValue} from './types';
+import {DELTA_DATE_TIME_TO_INT} from '../constants';
+import {
+  TChartDataLabel,
+  TChartPrepareData,
+  TColumnValue,
+  TCoordinatePoint,
+} from '../types';
+import {compose, joinValues, parseDateTimeToInt} from '@/utils/utils';
 
 export function getColumnData(data: TChartData) {
   let dataValuesX: TColumnsValueAxis = [];
@@ -18,7 +26,7 @@ export function getColumnData(data: TChartData) {
   const columnNames = data.names as TColumnKeyValue;
   const columnColors = data.colors as TColumnKeyValue;
 
-  data.columns.forEach(([key, ...values]) => {
+  forEach(data.columns, ([key, ...values]) => {
     const column: TColumnValue = {
       values: [...values],
       type: columnTypes[key],
@@ -35,12 +43,6 @@ export function getColumnData(data: TChartData) {
   return {dataValuesX, columnDataY};
 }
 
-export function parseDateTimeToInt(value: string, index: number, delta = 5) {
-  const countDigit = value.toString().length;
-  const rank = new Array(countDigit).fill(1).join('');
-  return Math.round(Number(value) / Number(rank) + index * delta);
-}
-
 export function getPrepareDataAxisX(dataValuesX: TColumnsValueAxis) {
   const coordinatesX: number[] = [];
   const labelsX: TChartDataLabel[] = [];
@@ -48,14 +50,15 @@ export function getPrepareDataAxisX(dataValuesX: TColumnsValueAxis) {
 
   if (dataValuesX?.length > 0) {
     maxDataX = parseDateTimeToInt(
-      Math.max(...dataValuesX.map((x) => Number(x))).toString(),
-      dataValuesX.length
+      max(dataValuesX.map((x) => Number(x))) || 0,
+      dataValuesX.length,
+      DELTA_DATE_TIME_TO_INT
     );
-    const countLabelX = Math.round(maxDataX / SPACE_BETWEEN_LABEL_X);
-    const indexRangeX = Math.round(dataValuesX.length / countLabelX);
+    const countLabelX = round(maxDataX / SPACE_BETWEEN_LABEL_X);
+    const indexRangeX = round(dataValuesX.length / countLabelX);
 
-    dataValuesX.forEach((item, index) => {
-      const x = parseDateTimeToInt(item.toString(), index);
+    forEach(dataValuesX, (item, index) => {
+      const x = parseDateTimeToInt(Number(item), index, DELTA_DATE_TIME_TO_INT);
       const remainderX = index % indexRangeX;
 
       if (index === 0 || remainderX === 0) {
@@ -77,36 +80,51 @@ export function getPrepareDataAxisX(dataValuesX: TColumnsValueAxis) {
 }
 
 export function getPrepareDataAxisY(columnDataY: TColumnValue[]) {
-  const maxDataY = Math.round(
-    Math.max(
-      ...columnDataY.map((item) =>
-        Math.max(...item.values.map((y) => Number(y)))
-      )
-    )
+  const maxDataY = round(
+    max(map(columnDataY, (item) => max(map(item.values, (y) => Number(y))))) ||
+      0
   );
-  const countLabelY = Math.round(maxDataY / SPACE_BETWEEN_LABEL_Y);
+  const countLabelY = round(maxDataY / SPACE_BETWEEN_LABEL_Y);
+  const initValues = new Array(countLabelY).fill(SPACE_BETWEEN_LABEL_Y);
 
-  const labelsY: TChartDataLabel[] = new Array(countLabelY)
-    .fill(SPACE_BETWEEN_LABEL_Y)
-    .reduce((result: number[], currentItem: number, currentIndex) => {
-      const prevItem = currentIndex > 0 ? result[currentIndex - 1] : 0;
-      const newItem = currentItem + prevItem;
+  const addValueLabels = (labels: []) =>
+    reduce(
+      labels,
+      (result: number[], currentItem: number, currentIndex) => {
+        const prevItem = currentIndex > 0 ? result[currentIndex - 1] : 0;
+        const newItem = currentItem + prevItem;
 
-      if (newItem < maxDataY || newItem <= SPACE_BETWEEN_LABEL_Y) {
-        result.push(currentItem + prevItem);
-      }
+        if (newItem < maxDataY || newItem <= SPACE_BETWEEN_LABEL_Y) {
+          result.push(newItem);
+        }
 
-      return result;
-    }, [])
-    .map((item: number) => {
-      return {
-        label: item.toString(),
-        coordinate: Math.abs(maxDataY - item),
-      };
-    });
+        return result;
+      },
+      []
+    );
+
+  const mapLabelCoordinates = (labels: []) =>
+    map(labels, (item: number) => ({
+      label: item.toString(),
+      coordinate: Math.abs(maxDataY - item),
+    }));
+
+  const composeDataLabel = compose([mapLabelCoordinates, addValueLabels]);
+
+  const labelsY: TChartDataLabel[] = composeDataLabel(initValues);
 
   return {labelsY, maxDataY};
 }
+
+export const mapPointCoordinates = (
+  points: TCoordinatePoint[],
+  deltaY?: number
+) =>
+  map(points, (element) => {
+    const x = element.x;
+    const y = deltaY ? Math.round(element.y / deltaY) : element.y;
+    return `${x},${y}`;
+  });
 
 export function prepareData(data: TChartData): TChartPrepareData {
   const {dataValuesX, columnDataY} = getColumnData(data);
@@ -114,9 +132,9 @@ export function prepareData(data: TChartData): TChartPrepareData {
   const {coordinatesX, labelsX, maxDataX} = getPrepareDataAxisX(dataValuesX);
   const {labelsY, maxDataY} = getPrepareDataAxisY(columnDataY);
 
-  const coordinates = columnDataY.map((item) => {
+  const coordinates = map(columnDataY, (item) => {
     const {values, ...data} = item;
-    const points = values.map((value, index) => {
+    const points: TCoordinatePoint[] = map(values, (value, index) => {
       return {
         x: coordinatesX[index],
         y: maxDataY - Number(value),
@@ -129,23 +147,13 @@ export function prepareData(data: TChartData): TChartPrepareData {
     };
   });
 
-  const lines = coordinates.map((item) => {
+  const composeCoordinates = compose([joinValues, mapPointCoordinates]);
+
+  const lines = map(coordinates, (item) => {
     const {points, ...data} = item;
     return {
-      points: points
-        .map((element) => {
-          const x = element.x;
-          const y = element.y;
-          return `${x},${y}`;
-        })
-        .join(' '),
-      pointsMap: points
-        .map((element) => {
-          const x = element.x;
-          const y = Math.round(element.y / CHART_DELTA_MAP_Y);
-          return `${x},${y}`;
-        })
-        .join(' '),
+      points: composeCoordinates(points),
+      pointsMap: composeCoordinates(points, CHART_DELTA_MAP_Y),
       ...data,
       isVisible: true,
     };

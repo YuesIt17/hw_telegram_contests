@@ -1,10 +1,4 @@
 import React from 'react';
-import {
-  TChartDataLabel,
-  TChartDataLine,
-  prepareData,
-  omit,
-} from '../../../../../utils';
 import {ChartAction} from '../../../store/actions';
 import {reducer} from '../../../store/reducer';
 import {mockDataCharts} from '../../../../../api/telegramChart';
@@ -15,6 +9,8 @@ import {useStyles} from '../../../containers/TelegramChart/styles';
 import {TChartClassData} from './types';
 import {PEDDING_CHART_SIZE} from '../../../constants';
 import {SerializedStyles} from '@emotion/react';
+import {TChartDataLabel, TChartDataLine} from '@/utils/types';
+import {prepareData} from '@/utils';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,
@@ -65,10 +61,9 @@ export class TelegramChartClass extends React.Component<
   }
 
   onChangeHadler = (line: TChartDataLine, isVisible: boolean) => {
-    const chartData = omit(this.state, 'data');
     this.dispatch({
       action: ChartAction.updateOne,
-      payload: {...chartData, lines: {...line, isVisible: isVisible}},
+      payload: {lines: {...line, isVisible: isVisible}} as TChartClassData,
     });
   };
 

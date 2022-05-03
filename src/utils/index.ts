@@ -1,11 +1,4 @@
-export {
-  prepareData,
-  TChartDataLabel,
-  TChartDataLine,
-  TChartPrepareData,
-  TColumnValue,
-} from './prepareData';
-export {omit} from './utils';
+export {prepareData} from './prepareData';
 export {
   ThemeTestProvider,
   authTestRender,

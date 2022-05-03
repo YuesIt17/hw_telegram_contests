@@ -1,6 +1,6 @@
 export type TCheckBox = TCheckboxField & {
   label: string;
-  color: string | undefined;
+  color?: string;
   onChange?: (field: TCheckboxField) => void;
 };
 

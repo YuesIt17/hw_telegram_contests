@@ -1,12 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
-const resolvePath = p => path.resolve(__dirname, p)
+const resolvePath = p => path.resolve(__dirname, p);
 
 const config = {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: resolvePath("dist"),
   },
   devServer: {
     open: true,
@@ -17,13 +18,16 @@ const config = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      '@utils': resolvePath('./src/utils'),
-    }
+      utils: path.resolve(__dirname, "src/utils"),
+      components: path.resolve(__dirname, "src/components"),
+      "@": path.resolve(__dirname, "src"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new LodashModuleReplacementPlugin()
   ],
   module: {
     rules: [
@@ -31,6 +35,9 @@ const config = {
         test: /\.(js|ts)x?$/i,
         loader: "babel-loader",
         exclude: /node_modules/,
+        options: {
+          plugins: ['lodash'],
+        }
       },
       {
         test: /\.(c|s)a?ss$/,

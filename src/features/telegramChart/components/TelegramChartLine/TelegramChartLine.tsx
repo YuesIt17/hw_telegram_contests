@@ -1,5 +1,5 @@
+import {TChartDataLine} from '@/utils/types';
 import React, {memo, useContext} from 'react';
-import {TChartDataLine} from '../../../../utils';
 import {ClassComponentContext} from '../../pages/TelegramChartPage';
 import {ChartLineClass} from '../../sampleClassComponent/components';
 import {ChartAxis} from '../ChartAxis';

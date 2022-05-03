@@ -1,6 +1,4 @@
-const path = require('path')
-
-const resolve = (p) => path.join(process.cwd(), p)
+const custom = require('../webpack.config.js');
 
 module.exports = {
   "stories": ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -15,5 +13,15 @@ module.exports = {
   },
   core: {
     builder: "webpack5"
-  }
+  },
+  webpackFinal: (config) => {
+    return {
+      ...config,
+      resolve: custom.resolve,
+      module: {
+        ...config.module,
+        rules: [...config.module.rules],
+      },
+    };
+  },
 };

@@ -1,11 +1,11 @@
 import React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, screen} from '@testing-library/react';
 import {TelegramChartPage} from './TelegramChartPage';
-import '@testing-library/jest-dom';
+import {themeTestRender} from '@/utils/tests';
 
 describe('TelegramChartPage test', () => {
   test('Check render TelegramChartPage component with click checkbox Show/Hide Graph', () => {
-    const {queryByTestId} = render(<TelegramChartPage />);
+    const {queryByTestId} = themeTestRender(<TelegramChartPage />);
 
     const isVisibleChart = screen.getByTestId('isVisibleChart');
     expect(isVisibleChart).toBeInTheDocument();

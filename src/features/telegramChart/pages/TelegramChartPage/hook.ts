@@ -1,5 +1,5 @@
+import {TCheckboxField} from '@/components/CheckBox/types';
 import {useCallback, useState} from 'react';
-import {TCheckboxField} from '../../../../components/CheckBox/types';
 
 export function useTelegramChartPage() {
   const [isVisibleChart, setVisibleChart] = useState(true);

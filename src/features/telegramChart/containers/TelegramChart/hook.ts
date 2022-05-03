@@ -1,8 +1,9 @@
 import {useEffect, useMemo, useReducer} from 'react';
 import {mockDataCharts} from '../../../../api/telegramChart';
-import {prepareData, TChartDataLine} from '../../../../utils/';
+import {TChartDataLine} from '@/utils/types';
 import {ChartAction} from '../../store/actions';
 import {reducer} from '../../store/reducer';
+import {prepareData} from '@/utils';
 
 const initialState: TChartDataLine[] = [];
 
