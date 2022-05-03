@@ -1,3 +1,4 @@
+export const MODULE_NAME = 'telegramChart';
 export const CHART_WIDTH = 700;
 export const SPACE_BETWEEN_LABEL_X = 60;
 export const SPACE_BETWEEN_LABEL_Y = 60;

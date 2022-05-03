@@ -112,3 +112,7 @@ emotion:
 
 13. Add alias
 - yarn add -D tsconfig-paths-webpack-plugin
+
+14. Add react-redux
+- yarn add react-redux
+- yarn add @reduxjs/toolkit
