@@ -5,10 +5,9 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {filter, isArray, sortBy} from 'lodash';
 import {MODULE_NAME} from '../../constants';
 
-export const fetchDataChart = createAsyncThunk('data_charts', async () => {
+export const fetchDataChart = createAsyncThunk<TChartData>('data_charts', async () => {
   const response = await dataChart.get();
-  const data: TChartData = await response.json();
-  return data;
+  return (await response.json()) as TChartData;
 });
 
 const initialState: TChartDataLine[] = [];

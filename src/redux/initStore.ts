@@ -8,3 +8,11 @@ export const initStore = (): Store => {
 
   return store;
 };
+
+
+export const store = initStore();
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+
