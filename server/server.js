@@ -1,12 +1,15 @@
-import {Fetcher} from '..';
-import {COLOR_CHART_LINE_JOINED, COLOR_CHART_LINE_LEFT} from './constants';
-import {TChartData} from './types';
+const express = require('express');
+const cors = require('cors');
 
-export const dataChart = {
-  get: () => Fetcher.request({url: 'data_chart'}),
-};
+const app = express();
+const port = process.env.PORT || 5000;
 
-export const mockDataCharts = {
+app.use(cors());
+
+// This displays message that the server running and listening to specified port
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+const mockDataChart = {
   columns: [
     [
       'x',
@@ -364,7 +367,12 @@ export const mockDataCharts = {
     y1: 'Left',
   },
   colors: {
-    y0: COLOR_CHART_LINE_JOINED,
-    y1: COLOR_CHART_LINE_LEFT,
+    y0: '#3DC23F',
+    y1: '#F34C44',
   },
-} as TChartData;
+};
+
+// create a GET route
+app.get('/data_chart', (req, res) => {
+  res.send(mockDataChart);
+});

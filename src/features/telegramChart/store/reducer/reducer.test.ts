@@ -1,6 +1,9 @@
-import {COLOR_CHART_LINE_JOINED, COLOR_CHART_LINE_LEFT} from '@/api/telegramChart/constants';
+import {
+  COLOR_CHART_LINE_JOINED,
+  COLOR_CHART_LINE_LEFT,
+} from '@/api/telegramChart/constants';
 import {TChartDataLine} from 'utils/types';
-import {telegramChartReducer, setAll, updateOne} from './reducer'
+import {telegramChartReducer, setAll, updateOne} from './reducer';
 
 const initState = [
   {
@@ -14,12 +17,12 @@ const initState = [
 ] as TChartDataLine[];
 
 const payload = {
-    color: COLOR_CHART_LINE_JOINED,
-    name: 'name_2',
-    points: '1,0 6,17',
-    pointsMap: '1,0 6,3',
-    type: 'line',
-    isVisible: true,
+  color: COLOR_CHART_LINE_JOINED,
+  name: 'name_2',
+  points: '1,0 6,17',
+  pointsMap: '1,0 6,3',
+  type: 'line',
+  isVisible: true,
 } as TChartDataLine;
 
 describe('TelegramChart test reducer', () => {
@@ -33,11 +36,15 @@ describe('TelegramChart test reducer', () => {
   });
 
   test('Check action setAll with data payload', () => {
-    expect(telegramChartReducer(undefined, setAll([payload]))).toEqual([payload]);
+    expect(telegramChartReducer(undefined, setAll([payload]))).toEqual([
+      payload,
+    ]);
   });
 
   test('Check action setAll with data payload and state', () => {
-    expect(telegramChartReducer(initState, setAll([payload]))).toEqual([payload]);
+    expect(telegramChartReducer(initState, setAll([payload]))).toEqual([
+      payload,
+    ]);
   });
 
   test('Check action setAll with one object data payload', () => {
@@ -45,32 +52,44 @@ describe('TelegramChart test reducer', () => {
   });
 
   test('Check action updateOne with empty payload', () => {
-    expect(telegramChartReducer(undefined, updateOne({} as TChartDataLine))).toEqual([]);
+    expect(
+      telegramChartReducer(undefined, updateOne({} as TChartDataLine))
+    ).toEqual([]);
   });
 
   test('Check action updateOne with data payload and empty state', () => {
-    expect(telegramChartReducer(undefined, updateOne(payload))).toEqual([payload]);
+    expect(telegramChartReducer(undefined, updateOne(payload))).toEqual([
+      payload,
+    ]);
   });
 
   test('Check action updateOne with data payload and state', () => {
-    expect(telegramChartReducer(initState, updateOne(payload))).toEqual([...initState, payload]);
+    expect(telegramChartReducer(initState, updateOne(payload))).toEqual([
+      ...initState,
+      payload,
+    ]);
   });
 
   test('Check action updateOne change data after init state', () => {
     const сhangedPayload = {
       ...initState[0],
-      isVisible: true
+      isVisible: true,
     } as TChartDataLine;
 
-    expect(telegramChartReducer(initState, updateOne(сhangedPayload))).toEqual([сhangedPayload]);
+    expect(telegramChartReducer(initState, updateOne(сhangedPayload))).toEqual([
+      сhangedPayload,
+    ]);
   });
 
   test('Check action updateOne change data payload and with data state', () => {
     const сhangedPayload = {
       ...payload,
-      isVisible: false
+      isVisible: false,
     } as TChartDataLine;
 
-    expect(telegramChartReducer(initState, updateOne(сhangedPayload))).toEqual([...initState, сhangedPayload]);
+    expect(telegramChartReducer(initState, updateOne(сhangedPayload))).toEqual([
+      ...initState,
+      сhangedPayload,
+    ]);
   });
-})
+});

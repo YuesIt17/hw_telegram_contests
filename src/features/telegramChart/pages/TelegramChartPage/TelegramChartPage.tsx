@@ -36,14 +36,15 @@ export function TelegramChartPage() {
       <ClassComponentContext.Provider
         value={{hasClassComponent: toggleClassComponent}}
       >
-        <>
-          {isVisibleChart && !toggleClassComponent && (
-            <TelegramChart width={CHART_WIDTH} />
-          )}
-          {isVisibleChart && toggleClassComponent && (
-            <TelegramChartClass width={CHART_WIDTH} />
-          )}
-        </>
+        {isVisibleChart && (
+          <div>
+            {toggleClassComponent ? (
+              <TelegramChartClass width={CHART_WIDTH} />
+            ) : (
+              <TelegramChart width={CHART_WIDTH} />
+            )}
+          </div>
+        )}
       </ClassComponentContext.Provider>
     </div>
   );

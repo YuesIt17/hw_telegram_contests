@@ -1,9 +1,12 @@
 import {useEffect, useMemo, useReducer} from 'react';
-import {mockDataCharts} from '../../../../api/telegramChart';
+
 import {TChartDataLine} from '@/utils/types';
 import {ChartAction} from '../../store/actions';
 import {reducer} from '../../store/reducer';
 import {prepareData} from '@/utils';
+import {mockDataCharts} from '@/api/telegramChart';
+// import {useDispatch} from 'react-redux';
+// import {fetchDataChart} from '../../store/reducer/reducer';
 
 const initialState: TChartDataLine[] = [];
 
@@ -13,6 +16,14 @@ export function useTelegramChart() {
     () => prepareData(mockDataCharts),
     [mockDataCharts]
   );
+  // const dispatch1 = useDispatch();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const data = await dispatch1(fetchDataChart()).unwrap();
+  //     console.log('data', data);
+  //   };
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     dispatch({type: ChartAction.setAll, payload: lines});

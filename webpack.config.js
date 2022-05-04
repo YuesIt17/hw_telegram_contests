@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const resolvePath = p => path.resolve(__dirname, p);
 
@@ -12,6 +13,7 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    port: 8080,
     //https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
     historyApiFallback: true,
   },
@@ -27,7 +29,11 @@ const config = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
-    new LodashModuleReplacementPlugin()
+    new LodashModuleReplacementPlugin(),
+    new Dotenv({
+      path: './.env',
+      safe: true,
+    })
   ],
   module: {
     rules: [

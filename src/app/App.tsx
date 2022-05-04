@@ -37,7 +37,7 @@ const globalStyle = css({
 
 type TApp = {
   store: Store;
-}
+};
 
 export const App: FC<TApp> = ({store}): ReactElement => (
   <Provider store={store}>
