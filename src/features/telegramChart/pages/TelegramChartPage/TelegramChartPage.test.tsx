@@ -3,6 +3,10 @@ import {fireEvent, screen} from '@testing-library/react';
 import {TelegramChartPage} from './TelegramChartPage';
 import {themeTestRender} from '@/utils/tests';
 
+jest.mock('@/redux/hooks', () => ({
+  useAppDispatch: jest.fn,
+}));
+
 describe('TelegramChartPage test', () => {
   test('Check render TelegramChartPage component with click checkbox Show/Hide Graph', () => {
     const {queryByTestId} = themeTestRender(<TelegramChartPage />);

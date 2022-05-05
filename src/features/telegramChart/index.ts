@@ -1,8 +1,8 @@
 import {MODULE_NAME} from './constants';
-import {telegramChartReducer} from './store';
+import {chartModuleReducer} from './store';
 
 export {default} from './layouts';
 
 export const chartReducer = {
-  [MODULE_NAME]: telegramChartReducer,
+  [MODULE_NAME]: chartModuleReducer,
 };

@@ -1,29 +1,28 @@
-import {useEffect, useMemo, useReducer} from 'react';
+import {useEffect, useMemo, useReducer, useState} from 'react';
 
 import {TChartDataLine} from '@/utils/types';
 import {ChartAction} from '../../store/actions';
 import {reducer} from '../../store/reducer';
 import {prepareData} from '@/utils';
-import {mockDataCharts} from '@/api/telegramChart';
-// import {useDispatch} from 'react-redux';
-// import {fetchDataChart} from '../../store/reducer/reducer';
+import {fetchDataChart} from '../../store/reducers/chartData';
+import {useAppDispatch} from '@/redux/hooks';
 
 const initialState: TChartDataLine[] = [];
 
 export function useTelegramChart() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {lines, maxDataX, maxDataY, labelsX, labelsY} = useMemo(
-    () => prepareData(mockDataCharts),
-    [mockDataCharts]
+  const [chartData] = useState<string>(
+    () => localStorage.getItem('chartData') || ''
   );
-  // const dispatch1 = useDispatch();
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await dispatch1(fetchDataChart()).unwrap();
-  //     console.log('data', data);
-  //   };
-  //   fetchData();
-  // }, []);
+  const {lines, maxDataX, maxDataY, labelsX, labelsY} = useMemo(() => {
+    const data = chartData ? JSON.parse(chartData) : [];
+    return prepareData(data);
+  }, [chartData]);
+  const appDispatch = useAppDispatch();
+
+  useEffect(() => {
+    appDispatch(fetchDataChart());
+  }, []);
 
   useEffect(() => {
     dispatch({type: ChartAction.setAll, payload: lines});

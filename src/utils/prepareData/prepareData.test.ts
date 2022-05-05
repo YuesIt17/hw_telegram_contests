@@ -1,5 +1,4 @@
 import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/constants';
-import {TChartData} from '../../api/telegramChart/types';
 import {
   getColumnData,
   getPrepareDataAxisX,
@@ -13,23 +12,7 @@ import {
   TColumnValue,
   TCoordinatePoint,
 } from '../types';
-
-const inputData = {
-  columns: [
-    ['x', 1542412800000, 1542499200000],
-    ['y0', 37, 20],
-  ],
-  types: {
-    y0: 'line',
-    x: 'x',
-  },
-  names: {
-    y0: '#0',
-  },
-  colors: {
-    y0: COLOR_CHART_LINE_JOINED,
-  },
-} as TChartData;
+import {mockChartData} from '@/share/mockData';
 
 describe('Prepare data for chart', () => {
   test('Check prepare data', () => {
@@ -60,7 +43,7 @@ describe('Prepare data for chart', () => {
       ] as TChartDataLabel[],
     };
 
-    expect(prepareData(inputData)).toEqual(outputData);
+    expect(prepareData(mockChartData)).toEqual(outputData);
   });
 
   test('Check get column data', () => {
@@ -76,7 +59,7 @@ describe('Prepare data for chart', () => {
       dataValuesX: [1542412800000, 1542499200000],
     };
 
-    expect(getColumnData(inputData)).toEqual(columnData);
+    expect(getColumnData(mockChartData)).toEqual(columnData);
   });
 
   test('Check get prepare data axis x', () => {

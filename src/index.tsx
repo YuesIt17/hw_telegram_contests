@@ -3,5 +3,4 @@ import {render} from 'react-dom';
 import {App} from './app';
 import {store} from './redux/initStore';
 
-
 render(<App store={store} />, document.getElementById('root'));

@@ -1,1 +1,1 @@
-export {telegramChartReducer} from './reducer/reducer';
+export {chartModuleReducer} from './reducers';
