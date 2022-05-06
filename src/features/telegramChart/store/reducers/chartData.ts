@@ -25,11 +25,7 @@ const chartDataSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchDataChart.fulfilled, (state, action) => {
       const {payload} = action;
-      if (payload) {
-        localStorage.setItem('chartData', JSON.stringify(payload));
-        return payload;
-      }
-      return state;
+      return payload || state;
     });
   },
 });

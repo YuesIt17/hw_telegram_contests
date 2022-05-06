@@ -3,9 +3,27 @@ import {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {AppRouter} from '../../../../router';
 import {authTestRender} from '@/utils/tests';
+import {mockChartDataLine} from '@/share/mockData';
+import {TChartDataLabel} from 'utils/types';
 
-jest.mock('@/redux/hooks', () => ({
-  useAppDispatch: jest.fn,
+jest.mock('@/features/telegramChart/containers/TelegramChart/hook', () => ({
+  useTelegramChart: jest.fn(() => ({
+    data: mockChartDataLine,
+    maxDataX: 11,
+    maxDataY: 37,
+    labelsX: [
+      {
+        label: 'Nov 17',
+        coordinate: 1,
+      },
+    ] as TChartDataLabel[],
+    labelsY: [
+      {
+        label: '60',
+        coordinate: 23,
+      },
+    ] as TChartDataLabel[],
+  })),
 }));
 
 describe('Auth test', () => {

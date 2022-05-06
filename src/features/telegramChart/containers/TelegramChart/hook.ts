@@ -1,39 +1,38 @@
-import {useEffect, useMemo, useReducer, useState} from 'react';
+import {useEffect, useMemo} from 'react';
 
 import {TChartDataLine} from '@/utils/types';
-import {ChartAction} from '../../store/actions';
-import {reducer} from '../../store/reducer';
 import {prepareData} from '@/utils';
 import {fetchDataChart} from '../../store/reducers/chartData';
-import {useAppDispatch} from '@/redux/hooks';
-
-const initialState: TChartDataLine[] = [];
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
+import {setAll, updateOne} from '../../store';
 
 export function useTelegramChart() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [chartData] = useState<string>(
-    () => localStorage.getItem('chartData') || ''
-  );
+  const dispatch = useAppDispatch();
+  const chartData = useAppSelector((state) => state.telegramChart.chartData);
+  const chartLines = useAppSelector((state) => state.telegramChart.chartLine);
+
   const {lines, maxDataX, maxDataY, labelsX, labelsY} = useMemo(() => {
-    const data = chartData ? JSON.parse(chartData) : [];
-    return prepareData(data);
+    return prepareData(chartData);
   }, [chartData]);
-  const appDispatch = useAppDispatch();
 
   useEffect(() => {
-    appDispatch(fetchDataChart());
+    dispatch(fetchDataChart());
   }, []);
 
   useEffect(() => {
-    dispatch({type: ChartAction.setAll, payload: lines});
+    dispatch(setAll(lines));
   }, [lines]);
 
   const onChangeHadler = (line: TChartDataLine, isVisible: boolean) => {
-    dispatch({
-      type: ChartAction.updateOne,
-      payload: {...line, isVisible: isVisible},
-    });
+    dispatch(updateOne({...line, isVisible: isVisible}));
   };
 
-  return {data: state, maxDataX, maxDataY, labelsX, labelsY, onChangeHadler};
+  return {
+    data: chartLines,
+    maxDataX,
+    maxDataY,
+    labelsX,
+    labelsY,
+    onChangeHadler,
+  };
 }

@@ -9,11 +9,12 @@ const chartLineSlice = createSlice({
   name: `${MODULE_NAME}.${CHART_LINE_REDUCER}`,
   initialState,
   reducers: {
-    setAll: (_, action: PayloadAction<TChartDataLine[] | TChartDataLine>) => {
+    setAll: (
+      state,
+      action: PayloadAction<TChartDataLine[] | TChartDataLine>
+    ) => {
       const {payload} = action;
-      if (isArray(payload)) {
-        return [...payload];
-      }
+      return isArray(payload) ? [...payload] : state;
     },
     updateOne: (
       state,
@@ -22,8 +23,8 @@ const chartLineSlice = createSlice({
       const {payload} = action;
       if (!isArray(payload) && payload?.name) {
         const lines = filter(state, (item) => item.name !== payload.name);
-        const newState = [...lines, payload];
-        return sortBy(newState, (item) => item.name);
+        const newState = [...lines, payload] as TChartDataLine[];
+        return sortBy(newState, [(item) => item?.name]);
       }
     },
   },

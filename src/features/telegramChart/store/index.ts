@@ -1,1 +1,1 @@
-export {chartModuleReducer} from './reducers';
+export {chartModuleReducer, setAll, updateOne} from './reducers';
