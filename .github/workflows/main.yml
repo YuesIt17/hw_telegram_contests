@@ -24,12 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Runs a single command using the runners shell
       - name: 'Project check'
         run: |
-          # Configure git
-          git config --global user.name "YuesIt17"
-          git config --global user.email "yues.it@yandex.ru"
           npm i
           npm run deploy
