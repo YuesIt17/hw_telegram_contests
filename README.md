@@ -1,19 +1,24 @@
 # Project telegram contest chart
 
-Run build: 
-  - yarn build
+Run build:
 
-Run app: 
-  - yarn start
+- yarn build
+
+Run app:
+
+- yarn start
 
 Run test:
-  - yarn test
 
-Run storybook: 
-  - yarn storybook
+- yarn test
 
-Run lint: 
-  - yarn lint
+Run storybook:
+
+- yarn storybook
+
+Run lint:
+
+- yarn lint
 
 Init packages:
 
@@ -35,20 +40,21 @@ Init packages:
 ? Pick a package manager: yarn
 
 3. Init babel preset-react and types
-https://babeljs.io/docs/en/babel-preset-react
-https://babeljs.io/docs/en/babel-preset-typescript
-https://ru.reactjs.org/docs/static-type-checking.html
+   https://babeljs.io/docs/en/babel-preset-react
+   https://babeljs.io/docs/en/babel-preset-typescript
+   https://ru.reactjs.org/docs/static-type-checking.html
 
 - yarn add -D @babel/preset-react @babel/preset-typescript @types/react @types/react-dom
-- add @babel/preset-typescript, @babel/preset-react in file .babelrc 
+- add @babel/preset-typescript, @babel/preset-react in file .babelrc
 
 4. Init react https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658
 
 - yarn add react react-dom
 
 5. Init ts
-- yarn add -D typescript 
-- npx tsc --init 
+
+- yarn add -D typescript
+- npx tsc --init
 - settings jsx in tsconfig.json https://www.typescriptlang.org/docs/handbook/jsx.html
 
 6. Init storybook https://storybook.js.org/docs/react/get-started/install
@@ -60,7 +66,7 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - yarn add -D jest
 - yarn add -D @types/jest
 - yarn add -D babel-jest
-  add "node": "current" in  .babelrc  https://jestjs.io/docs/getting-started#using-babel
+  add "node": "current" in .babelrc https://jestjs.io/docs/getting-started#using-babel
 - yarn add -D @testing-library/react
 - yarn add -D @testing-library/jest-dom
 - yarn add -D @testing-library/user-event https://testing-library.com/docs/ecosystem-user-event/
@@ -71,7 +77,7 @@ https://ru.reactjs.org/docs/static-type-checking.html
 8. Init chromatic https://www.chromatic.com/
 
 - add repository git hub
-- yarn add -D chromatic 
+- yarn add -D chromatic
 - npx chromatic --project-token=aa696d5e18f8
 
 9. Init eslint and prettier
@@ -86,29 +92,35 @@ https://ru.reactjs.org/docs/static-type-checking.html
 - yarn add -D eslint-plugin-react
 - echo {}> .prettierrc.json - if there is a problem with encoding https://github.com/prettier/prettier/issues/8815
 
-10. Init react router 
+10. Init react router
 
 - yarn add react-router-dom@6
 
 11. Init styles
+
 - yarn add clsx
 
 css:
+
 - yarn add -D css-loader
 - yarn add -D style-loader
 
 sass:
+
 - yarn add -D sass
 - yarn add -D sass-loader
 
 emotion:
+
 - yarn add -D @emotion/styled @emotion/react
 - yarn add -D @emotion/babel-preset-css-prop
 - yarn add -D @react-theming/storybook-addon https://storybook.js.org/addons/@react-theming/storybook-addon
 
 12. Init lodash
+
 - yarn add -D lodash @types/lodash
 - yarn add -D lodash-webpack-plugin babel-plugin-lodash
 
-13. Add alias
-- yarn add -D tsconfig-paths-webpack-plugin
+13. Add deploy
+
+- yarn add -D gh-pages

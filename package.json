@@ -36,6 +36,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-storybook": "^0.5.7",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
@@ -56,6 +57,7 @@
   "description": "Telegram contests project",
   "name": "telegram_contests",
   "author": "Evgeny_Y",
+  "homepage": "https://yuesit17.github.io/hw_telegram_contests",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
@@ -66,9 +68,10 @@
     "build-storybook": "build-storybook",
     "test": "jest",
     "test-update": "jest --updateSnapshot",
-    "precommit": "npm test & npm run lint",
     "chromatic": "npx chromatic --project-token=aa696d5e18f8",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm test & npm run lint & npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "clsx": "^1.1.1",
