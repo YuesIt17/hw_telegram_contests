@@ -28,5 +28,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: 'Project check'
         run: |
+          # Configure git
+          git config --global user.email "yues.it@yandex.ru"
+          git config --global user.name "YuesIt17"
           npm i
           npm run deploy
