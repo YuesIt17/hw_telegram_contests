@@ -60,6 +60,10 @@
   "description": "Telegram contests project",
   "name": "telegram_contests",
   "author": "Evgeny_Y",
+  "private": true,
+  "workspaces": [
+    "server"
+  ],
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
