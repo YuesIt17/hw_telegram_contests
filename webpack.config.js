@@ -12,8 +12,6 @@ const config = {
   },
   devServer: {
     open: true,
-    host: "localhost",
-    port: 8080,
     //https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
     historyApiFallback: true,
   },
@@ -68,4 +66,9 @@ const config = {
   },
 };
 
-module.exports = config;
+//module.exports = config;
+
+module.exports = (env, argv) => {
+  console.log(argv.mode)        // outputs development
+  return config;
+}
