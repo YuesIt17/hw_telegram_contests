@@ -10,6 +10,9 @@ const config = {
   output: {
     path: resolvePath("dist"),
   },
+  performance: {
+    hints: false
+  },
   devServer: {
     open: true,
     //https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
@@ -66,9 +69,4 @@ const config = {
   },
 };
 
-//module.exports = config;
-
-module.exports = (env, argv) => {
-  console.log(argv.mode)        // outputs development
-  return config;
-}
+module.exports = config;

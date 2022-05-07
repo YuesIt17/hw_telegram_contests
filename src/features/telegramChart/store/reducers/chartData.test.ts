@@ -1,4 +1,4 @@
-import {mockChartData} from '@/share/mockData';
+import {mockChartData} from '@/share/mockDataTest';
 import {chartDataReducer, fetchDataChart, initialState} from './chartData';
 
 const fulfilledAction = {type: fetchDataChart.fulfilled};
