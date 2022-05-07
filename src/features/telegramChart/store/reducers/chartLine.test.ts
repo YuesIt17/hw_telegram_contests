@@ -1,5 +1,5 @@
 import {COLOR_CHART_LINE_JOINED} from '@/api/telegramChart/constants';
-import {mockChartDataLine} from '@/share/mockData';
+import {mockChartDataLine} from '@/share/mockDataTest';
 import {TChartDataLine} from 'utils/types';
 import {chartLineReducer, setAll, updateOne} from './chartLine';
 

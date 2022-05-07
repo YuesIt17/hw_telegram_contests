@@ -2,7 +2,7 @@ import React from 'react';
 import {themeTestRenderer} from '@/utils/tests';
 import {TelegramChart} from './TelegramChart';
 import {TChartDataLabel} from 'utils/types';
-import {mockChartDataLine} from '@/share/mockData';
+import {mockChartDataLine} from '@/share/mockDataTest';
 
 jest.mock('./hook.ts', () => ({
   useTelegramChart: jest.fn(() => ({

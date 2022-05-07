@@ -12,7 +12,7 @@ import {
   TColumnValue,
   TCoordinatePoint,
 } from '../types';
-import {mockChartData} from '@/share/mockData';
+import {mockChartData} from '@/share/mockDataTest';
 
 describe('Prepare data for chart', () => {
   test('Check prepare data', () => {

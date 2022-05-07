@@ -1,7 +1,6 @@
 import React from 'react';
 import {ChartAction} from '../../../store/actions';
 import {reducer} from '../../../store/reducer';
-import {mockDataCharts} from '../../../../../api/telegramChart';
 import {TelegramChartFooter, TelegramChartLine} from '../../../components';
 import {TTelegramChartLine} from '../../../components/TelegramChartLine/types';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';
@@ -11,6 +10,7 @@ import {PEDDING_CHART_SIZE} from '../../../constants';
 import {SerializedStyles} from '@emotion/react';
 import {TChartDataLabel, TChartDataLine} from '@/utils/types';
 import {prepareData} from '@/utils';
+import {mockDataCharts} from '@/api/telegramChart/mockData';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,

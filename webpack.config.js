@@ -10,10 +10,11 @@ const config = {
   output: {
     path: resolvePath("dist"),
   },
+  performance: {
+    hints: false
+  },
   devServer: {
     open: true,
-    host: "localhost",
-    port: 8080,
     //https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
     historyApiFallback: true,
   },
