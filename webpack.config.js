@@ -4,10 +4,13 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const resolvePath = p => path.resolve(__dirname, p);
 
+const isProduction = process.env.NODE_ENV == "production";
+
 const config = {
   entry: "./src/index.tsx",
   output: {
     path: resolvePath("dist"),
+    publicPath: isProduction ? "hw_telegram_contests" : "/"
   },
   devServer: {
     open: true,

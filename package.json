@@ -57,7 +57,7 @@
   "description": "Telegram contests project",
   "name": "telegram_contests",
   "author": "Evgeny_Y",
-  "homepage": "https://yuesit17.github.io/hw_telegram_contests",
+  "homepage": "./",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
@@ -70,7 +70,8 @@
     "test-update": "jest --updateSnapshot",
     "chromatic": "npx chromatic --project-token=aa696d5e18f8",
     "prepare": "husky install",
-    "predeploy": "npm test & npm run lint & npm run build",
+    "precommit": "npm test & npm run lint",
+    "predeploy": "npm run precommit & npm run build:prod",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
