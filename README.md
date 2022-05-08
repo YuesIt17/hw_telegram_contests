@@ -144,3 +144,8 @@ for server
 - yarn add -D dotenv-webpack
 - yarn add -D @babel/runtime
 - yarn add -D @babel/plugin-transform-runtime
+
+16. Add redux-saga
+
+- yarn add redux-saga
+- yarn add -D redux-saga-test-plan

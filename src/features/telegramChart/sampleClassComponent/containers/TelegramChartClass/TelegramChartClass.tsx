@@ -1,6 +1,6 @@
 import React from 'react';
-import {ChartAction} from '../../../store/actions';
-import {reducer} from '../../../store/reducer';
+import {ChartAction} from '../../../store/basic/actions';
+import {reducer} from '../../../store/basic/reducer';
 import {TelegramChartFooter, TelegramChartLine} from '../../../components';
 import {TTelegramChartLine} from '../../../components/TelegramChartLine/types';
 import {TTelegramChart} from '../../../containers/TelegramChart/types';

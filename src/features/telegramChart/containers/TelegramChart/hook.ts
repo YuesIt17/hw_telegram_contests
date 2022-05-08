@@ -2,7 +2,7 @@ import {useEffect, useMemo} from 'react';
 
 import {TChartDataLine} from '@/utils/types';
 import {prepareData} from '@/utils';
-import {fetchDataChart} from '../../store/reducers/chartData';
+import {fetchDataChart} from '../../store/thunk/chartData';
 import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import {setAll, updateOne} from '../../store';
 
