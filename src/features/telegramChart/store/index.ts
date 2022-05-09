@@ -1,0 +1,1 @@
+export {chartModuleReducer} from './reducers';

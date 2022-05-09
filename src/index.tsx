@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {App} from './app';
+import {store} from './redux/initStore';
 
-render(<App />, document.getElementById('root'));
+render(<App store={store} />, document.getElementById('root'));

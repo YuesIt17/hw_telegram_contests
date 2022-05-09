@@ -124,3 +124,23 @@ emotion:
 13. Add deploy
 
 - yarn add -D gh-pages
+
+14. Add react-redux
+
+- yarn add react-redux
+- yarn add @reduxjs/toolkit
+- yarn add @types/react-redux
+
+15. Init server
+
+for server
+
+- yarn add express
+- yarn add cors
+
+  for client
+
+- yarn add -D concurrently
+- yarn add -D dotenv-webpack
+- yarn add -D @babel/runtime
+- yarn add -D @babel/plugin-transform-runtime

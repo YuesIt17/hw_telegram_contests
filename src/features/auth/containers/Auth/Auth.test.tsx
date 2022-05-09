@@ -4,6 +4,10 @@ import userEvent from '@testing-library/user-event';
 import {AppRouter} from '../../../../router';
 import {authTestRender} from '@/utils/tests';
 
+jest.mock('@/redux/hooks', () => ({
+  useAppDispatch: jest.fn,
+}));
+
 describe('Auth test', () => {
   test('Check user authorization', async () => {
     authTestRender(<AppRouter />);
