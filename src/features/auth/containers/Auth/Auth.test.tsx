@@ -3,8 +3,8 @@ import {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {AppRouter} from '../../../../router';
 import {authTestRender} from '@/utils/tests';
-import {mockChartDataLine} from '@/share/mockData';
 import {TChartDataLabel} from 'utils/types';
+import {mockChartDataLine} from '@/share/mockDataTest';
 
 jest.mock('@/features/telegramChart/containers/TelegramChart/hook', () => ({
   useTelegramChart: jest.fn(() => ({

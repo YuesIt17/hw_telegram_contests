@@ -1,5 +1,5 @@
-import {COLOR_CHART_LINE_JOINED, COLOR_CHART_LINE_LEFT} from "./constants";
-import {TChartData} from "./types";
+import {COLOR_CHART_LINE_JOINED, COLOR_CHART_LINE_LEFT} from './constants';
+import {TChartData} from './types';
 
 export const mockDataCharts = {
   columns: [

@@ -1,4 +1,3 @@
-
 type TRequest = {
   url: string;
   init?: RequestInit;
