@@ -40,6 +40,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-storybook": "^0.5.7",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
@@ -78,9 +79,11 @@
     "build-storybook": "build-storybook",
     "test": "jest",
     "test-update": "jest --updateSnapshot",
-    "precommit": "npm test & npm run lint",
     "chromatic": "npx chromatic --project-token=aa696d5e18f8",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit": "npm test & npm run lint",
+    "predeploy": "npm run precommit & npm run build:prod",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",

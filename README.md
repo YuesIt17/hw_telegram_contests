@@ -121,9 +121,9 @@ emotion:
 - yarn add -D lodash @types/lodash
 - yarn add -D lodash-webpack-plugin babel-plugin-lodash
 
-13. Add alias
+13. Add deploy
 
-- yarn add -D tsconfig-paths-webpack-plugin
+- yarn add -D gh-pages
 
 14. Add react-redux
 
