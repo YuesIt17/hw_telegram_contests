@@ -10,7 +10,7 @@ const config = {
   entry: "./src/index.tsx",
   output: {
     path: resolvePath("dist"),
-    publicPath: isProduction ? "/hw_telegram_contests/" : "/"
+    publicPath: isProduction ? "/hw_telegram_contests" : "/"
   },
   devServer: {
     open: true,
