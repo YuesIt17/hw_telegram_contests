@@ -3,7 +3,7 @@ import {mockDataCharts} from '@/api/telegramChart/mockData';
 import {TChartData} from '@/api/telegramChart/types';
 import {call, put, takeLatest} from 'redux-saga/effects';
 import {getDataChart} from './actions';
-import {actions} from './reducer';
+import {actions} from '../reducers/chartData';
 
 export function* getChartDataSaga() {
   try {
@@ -14,7 +14,9 @@ export function* getChartDataSaga() {
     yield put(actions.setAll({result}));
   } catch (e: any) {
     yield put(
-      actions.setAll({errors: `Error in getChartDataSaga: ${e.message}`})
+      actions.setError({
+        errors: `Error in getChartDataSaga: ${e.message}`,
+      })
     );
   }
 }

@@ -4,7 +4,7 @@ import {expectSaga} from 'redux-saga-test-plan';
 import {throwError} from 'redux-saga-test-plan/providers';
 import {call} from 'redux-saga/effects';
 import {getDataChart} from './actions';
-import {actions, chartDataReducer, initialState} from './reducer';
+import {actions, chartDataReducer, initialState} from '../reducers/chartData';
 import {chartSaga, getChartDataSaga} from './sagas';
 
 describe('Test saga of chart data', () => {
