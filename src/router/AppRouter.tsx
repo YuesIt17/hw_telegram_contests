@@ -24,9 +24,9 @@ const MainRoute = () => {
             }
           />
           {isVisiblePageHello && (
-            <Route path="/hw_telegram_contests/hello" element={<PageHello />} />
+            <Route path="/hello" element={<PageHello />} />
           )}
-          <Route path="/hw_telegram_contests/*" element={<PageNotFound />} />
+          <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Layout>
     </ProtectedRoute>
