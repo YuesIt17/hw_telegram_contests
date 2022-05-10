@@ -1,6 +1,6 @@
 import {useAuthContext, Layout} from '@/components';
 import React, {Suspense} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import {Auth} from '../features/auth';
 import {AuthActions} from '../features/auth/containers/AuthActions';
 import {PageHello, usePageHello} from './PageHello';
@@ -24,9 +24,9 @@ const MainRoute = () => {
             }
           />
           {isVisiblePageHello && (
-            <Route path="/hello" element={<PageHello />} />
+            <Route path="/hw_telegram_contests/hello" element={<PageHello />} />
           )}
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="/hw_telegram_contests/*" element={<PageNotFound />} />
         </Routes>
       </Layout>
     </ProtectedRoute>
@@ -35,15 +35,15 @@ const MainRoute = () => {
 
 export const AppRouter = () => {
   const {isUserAuthorization} = useAuthContext();
-  const location = window.location;
-  if (location.pathname !== '/hw_telegram_contests') {
-    location.replace(`${location.origin}/hw_telegram_contests`);
-  }
+
   return (
-    <BrowserRouter basename="/hw_telegram_contests">
+    <BrowserRouter>
       <Routes>
-        {!isUserAuthorization && <Route path="/auth" element={<Auth />} />}
-        <Route path="/*" element={<MainRoute />} />
+        <Route path="/" element={<Navigate to="/hw_telegram_contests" />} />
+        {!isUserAuthorization && (
+          <Route path="/hw_telegram_contests/auth" element={<Auth />} />
+        )}
+        <Route path="/hw_telegram_contests/*" element={<MainRoute />} />
       </Routes>
     </BrowserRouter>
   );

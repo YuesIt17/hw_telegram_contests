@@ -9,6 +9,10 @@ export const ProtectedRoute: FC = ({children}) => {
 
   if (isUserAuthorization) return React.Children.only(children as ReactElement);
   return (
-    <Navigate to="/auth" state={{from: location} as NavigationState} replace />
+    <Navigate
+      to="/hw_telegram_contests/auth"
+      state={{from: location} as NavigationState}
+      replace
+    />
   );
 };

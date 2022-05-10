@@ -8,7 +8,7 @@ export const PageNotFound = () => {
   const navigate = useNavigate();
 
   const onGoToMainPage = useCallback(() => {
-    navigate('/');
+    navigate('/hw_telegram_contests/');
   }, [navigate]);
 
   return (

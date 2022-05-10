@@ -18,7 +18,7 @@ export const usePageHello = () => {
 
   const onHidePageHello = useCallback(() => {
     localStorage.setItem('visiblePageHello', 'false');
-    navigate('/');
+    navigate('/hw_telegram_contests/');
   }, [navigate]);
 
   return {isVisiblePageHello, onHidePageHello};

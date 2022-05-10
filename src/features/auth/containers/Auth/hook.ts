@@ -16,9 +16,9 @@ export const useAuth = () => {
       const state = location.state as NavigationState;
       login(userName);
       if (isVisiblePageHello) {
-        navigate('/hello');
+        navigate('/hw_telegram_contests/hello');
       } else {
-        navigate(state?.from || '/');
+        navigate(state?.from || '/hw_telegram_contests/');
       }
     }
   }, [login, userName, location.state, isVisiblePageHello]);
