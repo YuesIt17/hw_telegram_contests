@@ -11,6 +11,10 @@ module.exports = {
         source: '/hw_telegram_contests/:path*',
         destination: '/',
       },
+      {
+        source: '/hw_telegram_contests/auth',
+        destination: '/auth',
+      },
     ];
   },
 }
