@@ -150,6 +150,6 @@ for server
 - yarn add redux-saga
 - yarn add -D redux-saga-test-plan
 
-17. Init notistack
+17. Init nextjs
 
-- yarn add notistack
+- yarn add next

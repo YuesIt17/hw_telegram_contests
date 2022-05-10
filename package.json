@@ -67,14 +67,8 @@
     "server"
   ],
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\" --fix --max-warnings=0",
-    "client": "webpack serve --mode=development",
     "server": "node server/server.js",
-    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "webpack serve --mode=production",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
@@ -82,12 +76,16 @@
     "chromatic": "npx chromatic --project-token=aa696d5e18f8",
     "prepare": "husky install",
     "precommit": "npm test & npm run lint",
-    "predeploy": "npm run precommit & npm run build:prod",
-    "deploy": "gh-pages -d dist"
+    "dev": "concurrently \"npm run server\" next dev",
+    "export": "next export",
+    "build": "next build",
+    "start": "next start",
+    "predeploy": "npm run precommit & npm run build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "clsx": "^1.1.1",
+    "next": "^12.1.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.1",

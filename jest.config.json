@@ -2,6 +2,7 @@
   "testEnvironment": "jsdom",
   "setupFilesAfterEnv": ["./src/setupTests.ts"],
   "moduleNameMapper": {
-    "^@/(.*)$": "<rootDir>/src/$1"
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^server/(.*)$": "<rootDir>/server/$1"
   } 
 }

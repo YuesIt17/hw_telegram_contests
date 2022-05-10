@@ -2,8 +2,8 @@ import React, {FC, ReactElement} from 'react';
 import {AppRouter} from '../router';
 import {css, Global, Theme, ThemeProvider} from '@emotion/react';
 import {AuthProvider} from '@/components/AuthProvider';
-import {Store} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
+import {store} from '../redux/initStore';
 
 const defaultColor = '#ffffff';
 
@@ -35,11 +35,7 @@ const globalStyle = css({
   },
 });
 
-type TApp = {
-  store: Store;
-};
-
-export const App: FC<TApp> = ({store}): ReactElement => (
+export const App: FC = (): ReactElement => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <Global styles={globalStyle} />

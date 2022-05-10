@@ -1,5 +1,5 @@
 import {dataChart} from '@/api/telegramChart';
-import {mockDataCharts} from '@/api/telegramChart/mockData';
+import {mockDataChart} from 'server/mockDataChart';
 import {TChartData} from '@/api/telegramChart/types';
 import {call, put, takeLatest} from 'redux-saga/effects';
 import {getDataChart} from './actions';
@@ -10,7 +10,7 @@ export function* getChartDataSaga() {
     const result: TChartData =
       process.env.NODE_ENV !== 'production'
         ? yield call(dataChart.get)
-        : mockDataCharts;
+        : mockDataChart;
     yield put(actions.setAll({result}));
   } catch (e: any) {
     yield put(
