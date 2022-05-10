@@ -35,8 +35,12 @@ const MainRoute = () => {
 
 export const AppRouter = () => {
   const {isUserAuthorization} = useAuthContext();
+  const location = window.location;
+  if (location.pathname !== '/hw_telegram_contests') {
+    location.replace(`${location.origin}/hw_telegram_contests`);
+  }
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/hw_telegram_contests">
       <Routes>
         {!isUserAuthorization && <Route path="/auth" element={<Auth />} />}
         <Route path="/*" element={<MainRoute />} />
