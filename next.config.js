@@ -8,7 +8,7 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/:path*',
+        source: '/hw_telegram_contests/:path*',
         destination: '/',
       },
     ];
