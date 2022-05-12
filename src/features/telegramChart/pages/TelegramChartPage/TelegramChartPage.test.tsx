@@ -2,9 +2,27 @@ import React from 'react';
 import {fireEvent, screen} from '@testing-library/react';
 import {TelegramChartPage} from './TelegramChartPage';
 import {themeTestRender} from '@/utils/tests';
+import {TChartDataLabel} from 'utils/types';
+import {mockChartDataLine} from '@/share/mockDataTest';
 
-jest.mock('@/redux/hooks', () => ({
-  useAppDispatch: jest.fn,
+jest.mock('../../containers/TelegramChart/hook', () => ({
+  useTelegramChart: jest.fn(() => ({
+    data: mockChartDataLine,
+    maxDataX: 11,
+    maxDataY: 37,
+    labelsX: [
+      {
+        label: 'Nov 17',
+        coordinate: 1,
+      },
+    ] as TChartDataLabel[],
+    labelsY: [
+      {
+        label: '60',
+        coordinate: 23,
+      },
+    ] as TChartDataLabel[],
+  })),
 }));
 
 describe('TelegramChartPage test', () => {

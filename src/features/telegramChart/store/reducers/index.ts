@@ -1,7 +1,9 @@
 import {combineReducers} from '@reduxjs/toolkit';
 import {CHART_DATA_REDUCER, CHART_LINE_REDUCER} from '../../constants';
-import {chartDataReducer} from './chartData';
+import {chartDataReducer} from '../thunk/chartData';
 import {chartLineReducer} from './chartLine';
+
+export {setAll, updateOne} from './chartLine';
 
 export const chartModuleReducer = combineReducers({
   [CHART_DATA_REDUCER]: chartDataReducer,
