@@ -149,7 +149,3 @@ for server
 
 - yarn add redux-saga
 - yarn add -D redux-saga-test-plan
-
-17. Init notistack
-
-- yarn add notistack

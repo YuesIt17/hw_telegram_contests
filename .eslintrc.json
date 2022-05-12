@@ -25,7 +25,6 @@
   "rules": {
     "prettier/prettier": "error",
     "react/prop-types": "off",
-    "@typescript-eslint/no-explicit-any": "off",
     "no-console": [
       "warn",
       {

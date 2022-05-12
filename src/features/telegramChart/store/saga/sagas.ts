@@ -12,10 +12,11 @@ export function* getChartDataSaga() {
         ? yield call(dataChart.get)
         : mockDataCharts;
     yield put(actions.setAll({result}));
-  } catch (e: any) {
+  } catch (e) {
+    const message = e instanceof Error ? e.message : '';
     yield put(
       actions.setError({
-        errors: `Error in getChartDataSaga: ${e.message}`,
+        errors: `Error in getChartDataSaga. ${message}`,
       })
     );
   }

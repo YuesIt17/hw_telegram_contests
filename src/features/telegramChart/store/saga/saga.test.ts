@@ -47,7 +47,7 @@ describe('Test saga of chart data', () => {
       .provide([[call(dataChart.get), throwError(error)]])
       .hasFinalState({
         ...initialState,
-        errors: 'Error in getChartDataSaga: Some error',
+        errors: 'Error in getChartDataSaga. Some error',
       })
       .run();
   });
