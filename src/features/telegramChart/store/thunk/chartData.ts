@@ -1,5 +1,5 @@
 import {dataChart} from '@/api/telegramChart';
-import {mockDataChart} from 'server/mockDataChart';
+import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 import {TChartData} from '@/api/telegramChart/types';
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {CHART_DATA_REDUCER, MODULE_NAME} from '../../constants';

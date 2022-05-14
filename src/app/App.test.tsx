@@ -1,11 +1,22 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {App} from './App';
-import {initStore} from '@/redux/initStore';
+import {AppProps} from 'next/app';
+
+const clientRouterMock = jest.createMockFromModule('next/router');
 
 describe('App test', () => {
   test('Check render App component', () => {
-    const store = initStore();
-    render(<App store={store} />);
+    const componentAuth = () => <div>App component</div>;
+    const appProps = {
+      Component: componentAuth,
+      pageProps: {},
+      router: clientRouterMock,
+    } as AppProps;
+
+    render(<App {...appProps} />);
+
+    const component = screen.getByText('App component');
+    expect(component).toBeInTheDocument();
   });
 });

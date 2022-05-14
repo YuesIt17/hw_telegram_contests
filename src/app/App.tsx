@@ -1,9 +1,10 @@
-import React, {FC, ReactElement} from 'react';
-import {AppRouter} from '../router';
+import React from 'react';
 import {css, Global, Theme, ThemeProvider} from '@emotion/react';
-import {AuthProvider} from '@/components/AuthProvider';
 import {Provider} from 'react-redux';
 import {store} from '../redux/initStore';
+import {AppProps} from 'next/app';
+import {AppRouter} from '@/router';
+import {AuthProvider} from '@/components/AuthProvider';
 
 const defaultColor = '#ffffff';
 
@@ -35,13 +36,13 @@ const globalStyle = css({
   },
 });
 
-export const App: FC = (): ReactElement => (
+export const App = (props: AppProps) => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <Global styles={globalStyle} />
-      <div css={(theme: Theme) => theme.paper}>
+      <div css={(theme: Theme) => theme.paper} suppressHydrationWarning>
         <AuthProvider>
-          <AppRouter />
+          <AppRouter props={props} />
         </AuthProvider>
       </div>
     </ThemeProvider>

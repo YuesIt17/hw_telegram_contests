@@ -1,5 +1,5 @@
 import React, {memo, useCallback} from 'react';
-import {TChartDataLabel} from 'utils/types';
+import {TChartDataLabel} from '@/utils/types';
 import {FONT_SIZE} from '../../constants';
 import {useStyles} from './styles';
 import {TChartAxis} from './types';

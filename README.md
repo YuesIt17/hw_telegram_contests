@@ -153,3 +153,4 @@ for server
 17. Init nextjs
 
 - yarn add next
+- yarn add -D next-router-mock

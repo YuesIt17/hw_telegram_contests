@@ -3,7 +3,7 @@ import {
   COLOR_CHART_LINE_LEFT,
 } from '@/share/constants';
 import {TChartData} from '@/api/telegramChart/types';
-import {TChartDataLine} from 'utils/types';
+import {TChartDataLine} from '@/utils/types';
 
 export const mockChartData = {
   columns: [

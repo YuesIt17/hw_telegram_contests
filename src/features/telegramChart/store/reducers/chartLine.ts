@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {filter, isArray, sortBy} from 'lodash';
-import {TChartDataLine} from 'utils/types';
+import {TChartDataLine} from '@/utils/types';
 import {CHART_LINE_REDUCER, MODULE_NAME} from '../../constants';
 
 const initialState: TChartDataLine[] = [];

@@ -1,5 +1,11 @@
-import {Location} from 'react-router-dom';
+import {NextComponentType} from 'next';
+import {AppInitialProps} from 'next/app';
 
-export type NavigationState = {
-  from?: Location;
+type NextApplicationPage = NextComponentType & {
+  requireAuth?: boolean;
+};
+
+export type NextAppProps = {
+  Component: NextApplicationPage;
+  pageProps: AppInitialProps['pageProps'];
 };

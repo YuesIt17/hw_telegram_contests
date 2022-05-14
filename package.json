@@ -47,6 +47,7 @@
     "lint-staged": "^12.3.4",
     "lodash": "^4.17.21",
     "lodash-webpack-plugin": "^0.11.6",
+    "next-router-mock": "^0.6.9",
     "prettier": "2.5.1",
     "react-test-renderer": "^17.0.2",
     "redux-saga-test-plan": "^4.0.4",
@@ -89,7 +90,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.1",
-    "react-router-dom": "6",
     "redux-saga": "^1.1.3"
   }
 }

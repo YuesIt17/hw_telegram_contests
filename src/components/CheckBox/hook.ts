@@ -1,4 +1,4 @@
-import {useCallback, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {TCheckBox} from './types';
 
 export function useCheckBox({
@@ -6,7 +6,11 @@ export function useCheckBox({
   value,
   onChange,
 }: Pick<TCheckBox, 'name' | 'value' | 'onChange'>) {
-  const [field, setFieldValue] = useState({name, value});
+  const [field, setFieldValue] = useState({name: '', value: false});
+
+  useEffect(() => {
+    setFieldValue({name, value});
+  }, [name, value]);
 
   const onClickHandler = useCallback(() => {
     const updatedField = {name, value: !field.value};

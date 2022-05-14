@@ -10,10 +10,10 @@
     "outDir": "compiled",
     "baseUrl": "./",
     "paths": {
-      "utils/*": [
+      "@/utils/*": [
         "src/utils/*"
       ],
-      "components/*": [
+      "@/components/*": [
         "src/components/*"
       ],
       "@/*": [

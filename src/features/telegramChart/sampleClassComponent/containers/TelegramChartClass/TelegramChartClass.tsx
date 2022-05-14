@@ -10,7 +10,7 @@ import {PEDDING_CHART_SIZE} from '../../../constants';
 import {SerializedStyles} from '@emotion/react';
 import {TChartDataLabel, TChartDataLine} from '@/utils/types';
 import {prepareData} from '@/utils';
-import {mockDataChart} from 'server/mockDataChart';
+import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,

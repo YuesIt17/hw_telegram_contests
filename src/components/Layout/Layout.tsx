@@ -4,7 +4,7 @@ import {useStyles} from './styles';
 export const Layout: FC<{actions: ReactNode}> = memo(({actions, children}) => {
   const styles = useStyles();
   return (
-    <div>
+    <div data-testid="layout">
       <header css={styles.header}>
         <div css={styles.actions}>{actions}</div>
       </header>

@@ -3,32 +3,20 @@ import {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {AppRouter} from '../../../../router';
 import {authTestRender} from '@/utils/tests';
-import {TChartDataLabel} from 'utils/types';
-import {mockChartDataLine} from '@/share/mockDataTest';
+import {NextAppProps} from '@/router/types';
+import Auth from '@/pages/auth';
+import singletonRouter from 'next/router';
 
-jest.mock('@/features/telegramChart/containers/TelegramChart/hook', () => ({
-  useTelegramChart: jest.fn(() => ({
-    data: mockChartDataLine,
-    maxDataX: 11,
-    maxDataY: 37,
-    labelsX: [
-      {
-        label: 'Nov 17',
-        coordinate: 1,
-      },
-    ] as TChartDataLabel[],
-    labelsY: [
-      {
-        label: '60',
-        coordinate: 23,
-      },
-    ] as TChartDataLabel[],
-  })),
-}));
+jest.mock('next/router', () => require('next-router-mock'));
 
 describe('Auth test', () => {
   test('Check user authorization', async () => {
-    authTestRender(<AppRouter />);
+    const props = {
+      Component: Auth,
+      pageProps: {},
+    } as NextAppProps;
+
+    authTestRender(<AppRouter props={props} />);
 
     const user = userEvent.setup();
 
@@ -42,12 +30,6 @@ describe('Auth test', () => {
     const loginButton = screen.getByRole('button', {name: /login/i});
     await user.click(loginButton);
 
-    const helloPage = screen.getByTestId('hello!');
-    expect(helloPage).toBeInTheDocument();
-    const buttonGo = screen.getByRole('button', {name: /^go$/i});
-    await user.click(buttonGo);
-
-    const telegramChartPage = screen.getByTestId('telegramChartPage');
-    expect(telegramChartPage).toBeInTheDocument();
+    expect(singletonRouter).toMatchObject({asPath: '/hello'});
   });
 });
