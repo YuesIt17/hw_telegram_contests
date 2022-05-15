@@ -7,3 +7,5 @@ dist
 build-storybook.log
 .next
 out
+yarn-error.log
+coverage
