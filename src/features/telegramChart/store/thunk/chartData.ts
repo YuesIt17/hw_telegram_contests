@@ -9,7 +9,7 @@ export const fetchDataChart = createAsyncThunk(
   async () => {
     if (process.env.NODE_ENV === 'development') {
       const response = await dataChart.get();
-      return (await response.json()) as TChartData;
+      return response as TChartData;
     }
     return mockDataCharts;
   }

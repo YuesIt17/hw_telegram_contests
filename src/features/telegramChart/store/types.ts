@@ -1,6 +1,6 @@
 import {TChartData} from '@/api/telegramChart/types';
 
 export type TChartState = {
-  result?: TChartData;
+  result: TChartData;
   errors?: string;
 };

@@ -2,21 +2,22 @@ import {useEffect, useMemo} from 'react';
 
 import {TChartDataLine} from '@/utils/types';
 import {prepareData} from '@/utils';
-import {fetchDataChart} from '../../store/thunk/chartData';
-import {useAppDispatch, useAppSelector} from '@/redux/hooks';
+import {useTypeDispatch, useTypeSelector} from '@/redux/hooks';
 import {setAll, updateOne} from '../../store';
+import {getDataChart} from '../../store/saga/actions';
+import {selectChartData, selectChartLine} from '../../store/selectors';
 
 export function useTelegramChart() {
-  const dispatch = useAppDispatch();
-  const chartData = useAppSelector((state) => state.telegramChart.chartData);
-  const chartLines = useAppSelector((state) => state.telegramChart.chartLine);
+  const dispatch = useTypeDispatch();
+  const chartData = useTypeSelector(selectChartData);
+  const chartLines = useTypeSelector(selectChartLine);
 
   const {lines, maxDataX, maxDataY, labelsX, labelsY} = useMemo(() => {
     return prepareData(chartData);
   }, [chartData]);
 
   useEffect(() => {
-    dispatch(fetchDataChart());
+    dispatch(getDataChart());
   }, []);
 
   useEffect(() => {
