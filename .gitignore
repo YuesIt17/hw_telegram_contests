@@ -9,3 +9,4 @@ build-storybook.log
 out
 yarn-error.log
 coverage
+.env.local

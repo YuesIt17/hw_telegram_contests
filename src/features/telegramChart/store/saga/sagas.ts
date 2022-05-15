@@ -8,7 +8,7 @@ import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 export function* getChartDataSaga() {
   try {
     const result: TChartData =
-      process.env.NODE_ENV !== 'production'
+      process.env.NEXT_PUBLIC_ENV_LOCAL_RUN_DEV === 'true'
         ? yield call(dataChart.get)
         : mockDataChart;
     yield put(actions.setAll({result}));
