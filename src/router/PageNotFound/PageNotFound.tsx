@@ -1,15 +1,15 @@
 import {PageDefault} from '@/components';
+import {useRouter} from 'next/router';
 import React, {useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
 import {useStyles} from './styles';
 
 export const PageNotFound = () => {
   const styles = useStyles();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const onGoToMainPage = useCallback(() => {
-    navigate('/');
-  }, [navigate]);
+    router.push('/');
+  }, []);
 
   return (
     <PageDefault
@@ -24,3 +24,5 @@ export const PageNotFound = () => {
     </PageDefault>
   );
 };
+
+PageNotFound.requireAuth = true;

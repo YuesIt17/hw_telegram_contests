@@ -1,27 +1,24 @@
 import {useAuthContext} from '@/components/AuthProvider';
+import {useRouter} from 'next/router';
 import {ChangeEvent, useCallback, useState} from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
 import {usePageHello} from '../../../../router';
-import {NavigationState} from '../../../../router/types';
 
 export const useAuth = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const {login} = useAuthContext();
   const [userName, setUserName] = useState<string>('');
   const {isVisiblePageHello} = usePageHello();
 
   const onLoginHandler = useCallback(() => {
     if (login && userName) {
-      const state = location.state as NavigationState;
       login(userName);
       if (isVisiblePageHello) {
-        navigate('/hello');
+        router.push('/hello');
       } else {
-        navigate(state?.from || '/');
+        router.push('/');
       }
     }
-  }, [login, userName, location.state, isVisiblePageHello]);
+  }, [login, userName, isVisiblePageHello]);
 
   const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);

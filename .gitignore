@@ -5,3 +5,8 @@
 node_modules
 dist
 build-storybook.log
+.next
+out
+yarn-error.log
+coverage
+.env.local

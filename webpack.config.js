@@ -52,7 +52,7 @@ const config = {
       {
         test: /\.(c|s)a?ss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
-        exclude: /\.module\.s([a—Å])ss$/,
+        exclude: /\.module\.s([aÒ])ss$/,
       },
       {
         test: /\.(c|s)a?ss$/,

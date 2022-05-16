@@ -1,46 +1,24 @@
-import {useAuthContext, Layout} from '@/components';
-import React, {Suspense} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {Auth} from '../features/auth';
-import {AuthActions} from '../features/auth/containers/AuthActions';
-import {PageHello, usePageHello} from './PageHello';
-import {PageNotFound} from './PageNotFound';
-import {ProtectedRoute} from './ProtectedRoute';
+import React from 'react';
+import {ProtectedRoute} from '@/router/ProtectedRoute';
+import {AuthActions} from '@/features/auth';
+import {AppProps} from 'next/app';
+import {Layout} from '@/components/Layout';
+import {NextAppProps} from './types';
 
-const TelegramChart = React.lazy(() => import('../features/telegramChart'));
+export const AppRouter = ({
+  props,
+}: {
+  props: Pick<AppProps, 'Component' | 'pageProps'>;
+}) => {
+  const {Component, pageProps}: NextAppProps = props;
 
-const MainRoute = () => {
-  const {isVisiblePageHello} = usePageHello();
-  return (
+  return Component.requireAuth ? (
     <ProtectedRoute>
       <Layout actions={<AuthActions />}>
-        <Routes>
-          <Route
-            index
-            element={
-              <Suspense fallback={<div />}>
-                <TelegramChart />
-              </Suspense>
-            }
-          />
-          {isVisiblePageHello && (
-            <Route path="/hello" element={<PageHello />} />
-          )}
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+        <Component {...pageProps} />
       </Layout>
     </ProtectedRoute>
-  );
-};
-
-export const AppRouter = () => {
-  const {isUserAuthorization} = useAuthContext();
-  return (
-    <BrowserRouter>
-      <Routes>
-        {!isUserAuthorization && <Route path="/auth" element={<Auth />} />}
-        <Route path="/*" element={<MainRoute />} />
-      </Routes>
-    </BrowserRouter>
+  ) : (
+    <Component {...pageProps} />
   );
 };

@@ -1,4 +1,4 @@
-import {COLOR_CHART_LINE_JOINED} from '../../api/telegramChart/constants';
+import {COLOR_CHART_LINE_JOINED} from '../../share/constants';
 import {
   getColumnData,
   getPrepareDataAxisX,

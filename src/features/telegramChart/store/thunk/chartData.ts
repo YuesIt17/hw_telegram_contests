@@ -1,5 +1,5 @@
 import {dataChart} from '@/api/telegramChart';
-import {mockDataCharts} from '@/api/telegramChart/mockData';
+import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 import {TChartData} from '@/api/telegramChart/types';
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {CHART_DATA_REDUCER, MODULE_NAME} from '../../constants';
@@ -11,7 +11,7 @@ export const fetchDataChart = createAsyncThunk(
       const response = await dataChart.get();
       return response as TChartData;
     }
-    return mockDataCharts;
+    return mockDataChart;
   }
 );
 

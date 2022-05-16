@@ -1,9 +1,12 @@
+import {useRouter} from 'next/router';
 import {useCallback, useEffect, useMemo} from 'react';
-import {useNavigate} from 'react-router-dom';
 
 export const usePageHello = () => {
-  const navigate = useNavigate();
-  const visiblePageHello = localStorage.getItem('visiblePageHello');
+  const router = useRouter();
+  const visiblePageHello =
+    (typeof window !== 'undefined' &&
+      localStorage.getItem('visiblePageHello')) ||
+    '';
 
   useEffect(() => {
     if (!visiblePageHello) {
@@ -18,8 +21,8 @@ export const usePageHello = () => {
 
   const onHidePageHello = useCallback(() => {
     localStorage.setItem('visiblePageHello', 'false');
-    navigate('/');
-  }, [navigate]);
+    router.push('/');
+  }, []);
 
   return {isVisiblePageHello, onHidePageHello};
 };

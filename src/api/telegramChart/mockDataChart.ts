@@ -1,7 +1,4 @@
-import {COLOR_CHART_LINE_JOINED, COLOR_CHART_LINE_LEFT} from './constants';
-import {TChartData} from './types';
-
-export const mockDataCharts = {
+export const mockDataChart = {
   columns: [
     [
       'x',
@@ -359,7 +356,7 @@ export const mockDataCharts = {
     y1: 'Left',
   },
   colors: {
-    y0: COLOR_CHART_LINE_JOINED,
-    y1: COLOR_CHART_LINE_LEFT,
+    y0: '#3DC23F',
+    y1: '#F34C44',
   },
-} as TChartData;
+};

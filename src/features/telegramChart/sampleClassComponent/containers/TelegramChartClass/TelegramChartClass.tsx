@@ -10,7 +10,7 @@ import {PEDDING_CHART_SIZE} from '../../../constants';
 import {SerializedStyles} from '@emotion/react';
 import {TChartDataLabel, TChartDataLine} from '@/utils/types';
 import {prepareData} from '@/utils';
-import {mockDataCharts} from '@/api/telegramChart/mockData';
+import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 
 export class TelegramChartClass extends React.Component<
   TTelegramChart,
@@ -49,7 +49,7 @@ export class TelegramChartClass extends React.Component<
   };
 
   componentDidMount() {
-    const dataChart = prepareData(mockDataCharts);
+    const dataChart = prepareData(mockDataChart);
     this.dispatch({action: ChartAction.setAll, payload: dataChart});
   }
 

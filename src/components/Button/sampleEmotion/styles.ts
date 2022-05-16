@@ -2,17 +2,14 @@ import {css, Theme} from '@emotion/react';
 import {TButton} from './types';
 
 export const useStyles = ({variant}: Pick<TButton, 'variant'>) => ({
-  button: (theme: Theme) =>
-    css({
+  button: (theme: Theme) => {
+    const colors = theme.colors;
+    return css({
       backgroundColor:
-        variant === 'primary'
-          ? theme.colors.primary.main
-          : theme.colors.secondary.light,
+        variant === 'primary' ? colors.primary.main : colors?.secondary.light,
       color:
-        variant === 'primary'
-          ? theme.colors.secondary.light
-          : theme.colors.primary.main,
-      border: `1px solid ${theme.colors.primary.main}`,
+        variant === 'primary' ? colors.secondary.light : colors?.primary.main,
+      border: `1px solid ${colors.primary.main}`,
       borderRadius: 4,
       padding: '4px 12px',
       fontSize: 14,
@@ -22,9 +19,8 @@ export const useStyles = ({variant}: Pick<TButton, 'variant'>) => ({
       lineHeight: 1.75,
       '&:hover': {
         backgroundColor:
-          variant === 'primary'
-            ? theme.colors.primary.dark
-            : theme.colors.secondary.main,
+          variant === 'primary' ? colors.primary.dark : colors.secondary.main,
       },
-    }),
+    });
+  },
 });

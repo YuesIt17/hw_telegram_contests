@@ -15,3 +15,5 @@ export const PageHello = () => {
     </PageDefault>
   );
 };
+
+PageHello.requireAuth = true;

@@ -1,22 +1,16 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {ProtectedRoute} from './ProtectedRoute';
 
-const contentPage = {
-  protectedRoute: 'Hello in Protected Route',
-  auth: 'Hello in Auth',
-};
-
-jest.mock('react-router-dom', () => ({
-  useLocation: jest.fn(),
-  Navigate: () => <div>{contentPage.auth}</div>,
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(() => ({
+    push: jest.fn,
+  })),
 }));
 
 describe('ProtectedRoute test', () => {
-  test('Check shows default value', () => {
-    render(<ProtectedRoute>{contentPage.protectedRoute}</ProtectedRoute>);
-
-    const content = screen.getByText(contentPage.auth);
-    expect(content).toHaveTextContent(contentPage.auth);
+  test('Check shows value null', () => {
+    const {container} = render(<ProtectedRoute>Some component</ProtectedRoute>);
+    expect(container.firstChild).toBeNull();
   });
 });

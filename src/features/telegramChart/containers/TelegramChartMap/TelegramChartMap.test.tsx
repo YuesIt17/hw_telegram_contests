@@ -2,7 +2,7 @@ import React from 'react';
 import {themeTestRenderer} from '@/utils/tests';
 import {TelegramChartMap} from './TelegramChartMap';
 import {TChartDataLine} from '@/utils/types';
-import {COLOR_CHART_LINE_JOINED} from '@/api/telegramChart/constants';
+import {COLOR_CHART_LINE_JOINED} from '@/share/constants';
 
 const dataInput = [
   {

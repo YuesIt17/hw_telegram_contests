@@ -1,14 +1,16 @@
 import {useAuthContext} from '@/components/AuthProvider';
-import React, {ReactElement, FC} from 'react';
-import {Navigate, useLocation} from 'react-router-dom';
-import {NavigationState} from '../types';
+import {useRouter} from 'next/router';
+import React, {FC, useEffect} from 'react';
 
 export const ProtectedRoute: FC = ({children}) => {
   const {isUserAuthorization} = useAuthContext();
-  const location = useLocation();
+  const router = useRouter();
 
-  if (isUserAuthorization) return React.Children.only(children as ReactElement);
-  return (
-    <Navigate to="/auth" state={{from: location} as NavigationState} replace />
-  );
+  useEffect(() => {
+    if (!isUserAuthorization) {
+      router.push('/auth');
+    }
+  });
+
+  return isUserAuthorization ? <>{children}</> : null;
 };

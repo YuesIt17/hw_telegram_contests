@@ -1,16 +1,17 @@
 import {dataChart} from '@/api/telegramChart';
-import {mockDataCharts} from '@/api/telegramChart/mockData';
 import {TChartData} from '@/api/telegramChart/types';
 import {call, put, takeLatest} from 'redux-saga/effects';
 import {getDataChart} from './actions';
 import {actions} from '../reducers/chartData';
+import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 
 export function* getChartDataSaga() {
   try {
     const result: TChartData =
-      process.env.NODE_ENV !== 'production'
+      process.env.NEXT_PUBLIC_ENV_LOCAL_RUN_DEV === 'true' ||
+      process.env.NODE_ENV === 'test'
         ? yield call(dataChart.get)
-        : mockDataCharts;
+        : mockDataChart;
     yield put(actions.setAll({result}));
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Error in saga';
