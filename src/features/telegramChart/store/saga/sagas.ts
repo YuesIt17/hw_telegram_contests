@@ -14,7 +14,7 @@ export function* getChartDataSaga() {
         : mockDataChart;
     yield put(actions.setAll({result}));
   } catch (e) {
-    const message = e instanceof Error ? e.message : '';
+    const message = e instanceof Error ? e.message : 'Error in saga';
     yield put(
       actions.setError({
         errors: `Error in getChartDataSaga. ${message}`,
