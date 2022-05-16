@@ -6,7 +6,7 @@ type TRequest = {
 export class Fetcher {
   public static async request({url, init}: TRequest) {
     try {
-      const response = await fetch(`${this.baseApiUrl}/${url}`, init);
+      const response = await fetch(`${process.env.REACT_URL_API}${url}`, init);
       if (response.ok) {
         return response.json();
       }
