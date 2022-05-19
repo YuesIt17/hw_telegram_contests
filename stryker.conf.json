@@ -8,6 +8,9 @@
     "progress",
     "dashboard"
   ],
+  "jest": {
+    "configFile": "jest.config.json"
+  },
   "testRunner": "jest",
   "coverageAnalysis": "perTest",
   "checkers": ["typescript"],
