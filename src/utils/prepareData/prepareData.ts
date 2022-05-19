@@ -1,9 +1,5 @@
 import {forEach, map, max, reduce, round} from 'lodash';
-import {
-  TChartData,
-  TColumnKeyValue,
-  TColumnsValueAxis,
-} from '../../api/telegramChart/types';
+import {TChartData, TColumnsValueAxis} from '../../api/telegramChart/types';
 import {
   CHART_DELTA_MAP_Y,
   SPACE_BETWEEN_LABEL_X,
@@ -22,9 +18,9 @@ export function getColumnData(data: TChartData) {
   let dataValuesX: TColumnsValueAxis = [];
   const columnDataY: TColumnValue[] = [];
 
-  const columnTypes = data.types as TColumnKeyValue;
-  const columnNames = data.names as TColumnKeyValue;
-  const columnColors = data.colors as TColumnKeyValue;
+  const columnTypes = data.types;
+  const columnNames = data.names;
+  const columnColors = data.colors;
 
   forEach(data.columns, ([key, ...values]) => {
     const column: TColumnValue = {
