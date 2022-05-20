@@ -4,3 +4,4 @@
 </div>
 
 ![Tech logos](https://raw.githubusercontent.com/YuesIt17/hw_telegram_contests/master/public/img/project_tech.jpg)
+![Project_example](https://raw.githubusercontent.com/YuesIt17/hw_telegram_contests/master/public/img/project_example.gif)
