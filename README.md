@@ -44,6 +44,14 @@ There are features missing from this showcase product which should exist in a re
 
 We currently store the username in local storage and run the project without valid credentials. In a real product, we would like to implement a proper email and password authentication system.
 
+### Chart map modification🗺️
+
+Need to add a slider on the chart map to view the details
+
+### Add tooltip for chart📋
+
+To view coordinate points, you need to add a tooltip
+
 ### Cypress tests 🧪
 
 Need to implement UI testing in a project using Cypress.
