@@ -27,12 +27,14 @@
 - Run app with server `yarn local`
 - Run app witout server with mock data `yarn dev`
 - App should now be running on http://localhost:3000/
+- Run srorybook `yarn storybook`
 
-## Running tests and check code 🚥
+## Running tests and check code ✔️
 
 - Run using command `yarn test`
 - Check project with lint using command `yarn lint`
 - Run test and lint using command `yarn precommit`
+- Check UI components with command `yarn chromatic`
 
 ## What's missing?
 
