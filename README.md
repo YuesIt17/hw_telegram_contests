@@ -48,9 +48,9 @@ We currently store the username in local storage and run the project without val
 
 Need to add a slider on the chart map to view the details
 
-### Add tooltip for chart📋
+### Tooltip for chart📋
 
-To view coordinate points, you need to add a tooltip
+Need to add tooltip for coordinate points
 
 ### Cypress tests 🧪
 
