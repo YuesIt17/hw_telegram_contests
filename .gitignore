@@ -9,4 +9,6 @@ build-storybook.log
 out
 yarn-error.log
 coverage
-.env.local
+# stryker temp files
+.stryker-tmp
+stryker.log

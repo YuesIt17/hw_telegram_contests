@@ -2,7 +2,7 @@ import React from 'react';
 import {themeTestRender} from '@/utils/tests';
 import {TelegramChartFooter} from './TelegramChartFooter';
 import {COLOR_CHART_LINE_JOINED} from '@/share/constants';
-import {TChartDataLine} from 'utils/types';
+import {TChartDataLine} from '@/utils/types';
 import {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

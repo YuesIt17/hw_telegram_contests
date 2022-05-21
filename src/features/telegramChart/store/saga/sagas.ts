@@ -7,11 +7,13 @@ import {mockDataChart} from '@/api/telegramChart/mockDataChart';
 
 export function* getChartDataSaga() {
   try {
-    const result: TChartData =
-      process.env.NEXT_PUBLIC_ENV_LOCAL_RUN_DEV === 'true' ||
-      process.env.NODE_ENV === 'test'
-        ? yield call(dataChart.get)
-        : mockDataChart;
+    const hasApi =
+      process.env.NEXT_PUBLIC_ENV_RUN_DEV === 'local' ||
+      process.env.NODE_ENV === 'test';
+    const result: TChartData = hasApi
+      ? yield call(dataChart.get)
+      : mockDataChart;
+
     yield put(actions.setAll({result}));
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Error in saga';
