@@ -13,7 +13,8 @@
 - The topic was taken from telegram contest https://t.me/contest/7 
 - And it is needed for studying new technologies and structuring knowledge
 
-## Features 🐱‍💻
+## Features 💻
 
 - Proven, scalable and easy-to-understand duck project architecture
 - Written in modern React, only functional components with React and custom hooks
+- A variety of custom light-weight UI components such as input, page, layout etc
