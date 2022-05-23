@@ -17,7 +17,7 @@
 
 - Proven, scalable and easy-to-understand project with Redux Ducks architecture
 - Client written in modern React with using NextJS and Next/router, only functional components with React hooks and custom hooks
-- A variety of custom light-weight UI components such as input, page, layout etc
+- A variety of custom light-weight UI components (with using [emotion](https://emotion.sh/docs/styled)) such as input, page, layout etc
 - Redux and Redux-saga are used to manage application state with reduxjs/toolkit
 - Server written in node.js with express
 
